@@ -1,0 +1,275 @@
+<html>
+<head>
+<style type="text/css">
+.cell{
+width:28px;
+height:30px;
+line-height:50px;
+font-size:12px;
+float:left;
+border:1px solid black;
+text-align:center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table width="500" border="0">
+<tr>
+<td colspan="4" style="background-color:#FFA500;">
+<h1>Battleships v 0.1</h1>
+</td>
+</tr>
+<tr valign="top">
+<td style="background-color:#FFD720;height:300px;width:100px;text-align:top;">
+
+<input name="New Game" type="button" value="New Game" onclick="top.location.href='playboardnewgame.htm'" /> <br  />
+<input name="Score" type="button" value="Score" onclick="top.location.href='score.htm'" /> <br />
+<input name="Rules" type="button" value="Rules" onclick="top.location.href='rules.htm'" /> <br />
+<input name="Exit" type="button" value="Exit" onclick="top.location.href='playboard.htm'" /> <br />
+</td>
+
+
+<td style="background-color:#EEEEEE;height:200px;width:60px;text-align:top;">
+
+
+<div id="table" style="width:300px;">
+<!-- FIRST ROW-->
+<div class="cell" id="1"><center><img src="pictures/left.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell" id="2"><center><img src="pictures/1shidboard.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/right.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/missed.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/up.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/1shidboard.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/down.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+</div>
+
+
+
+
+</td>
+
+<td style="background-color:#EEEEEE;height:200px;width:60px;text-align:top;">
+<img src="pictures/4ship.jpg" alt="some_text"/>
+<img src="pictures/3ship.jpg" alt="some_text"/>
+<img src="pictures/2ship.jpg" alt="some_text"/>
+<br><img src="pictures/1ship.jpg" alt="some_text"/>
+<br><img src="pictures/boom.jpg" alt="some_text"/>
+<br><img src="pictures/missed.jpg" alt="some_text"/>
+</td>
+
+
+<td style="background-color:#EEEEEE;height:200px;width:60px;text-align:top;">
+<div id="table" style="width:300px;">
+<!-- FIRST ROW-->
+<div class="cell" id="1"><center><img src="pictures/missed.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell" id="2"><center><img src="pictures/boom.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/missed.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/missed.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/boom.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/boom.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/missed.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+</div>
+</td>
+
+
+<tr>
+<td colspan="4" style="background-color:#FFA500;text-align:center;">
+Blackbearded 2012</td>
+
+</tr>
+</table>
+
+
+
+
+</body>
+</html>
