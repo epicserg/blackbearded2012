@@ -1,4 +1,4 @@
-function changeSrc()
+function changeSrc(a)
   {
-  document.getElementById("pic2.1").src="pictures/missed.jpg";
+  document.getElementById("pic"+a).src="pictures/missed.jpg";
   }

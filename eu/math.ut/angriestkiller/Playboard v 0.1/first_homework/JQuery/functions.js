@@ -4,7 +4,3 @@ $(document).ready(function(){
 	$('#makeBeauty').fadeIn(2000);
 	
 });
-$('#1').click(function() {
-	  $("#pic1").attr({ 'src:pictures', 'alt:pictures/missed.jpg' });
-	});
-	
