@@ -25,10 +25,19 @@ var j;
    } 
    return(a); 
 } 
-var myShips =new shipArray();
+
+//var tempX = 0;
+//var tempY = 0;
+//document.captureEvents(Event.MOUSEMOVE);
+//document.onmousemove = getMouseXY;
+//var globalId=' ';
+var active=0;
+var diagonal=1;
+var myShips =new shipArray();//after confirm button pressed we'll need to load our ship possitions
+var enemyShips= new shipArray();//after confirm  button pressed we'll need to load enemy's positions from net
 myShips.setTruth(0,0,new Boolean(1));
 myShips.setTruth(0,1,new Boolean(1));
 myShips.setTruth(0,2,new Boolean(1));
-document.write(myShips.getTruth(0,1));
+//shipDragged("4ship");
 
 	
