@@ -4,3 +4,4 @@ $(document).ready(function(){
 	$('#makeBeauty').fadeIn(2000);
 	
 });
+

@@ -4,10 +4,14 @@ function shipArray(){
 	this.setTruth=setTruth;
 }
 function getTruth(i,j){
+	if(i>9||j>9||i<0||j<0){
+		return new Boolean(0);
+	}	
 	return this.shipCoords[i][j];
 	}
 function setTruth(i,j,Boolean){
 	this.shipCoords[i][j]=Boolean;
+	//alert(Boolean +" is set at x " +j+ " y at "+ i) ; 
 	}	
 	
 function MultiArray(iRows,iCols) 
@@ -51,13 +55,16 @@ function moveImage(id) {
 var tempX = 0;
 var tempY = 0;
 */
+var myResourses=new Array(4,3,2,1);
 var active=0;
 var diagonal=1;
 var myShips =new shipArray();//after confirm button pressed we'll need to load our ship possitions
 var enemyShips= new shipArray();//after confirm  button pressed we'll need to load enemy's positions from net
+/*
 myShips.setTruth(0,0,new Boolean(1));
 myShips.setTruth(0,1,new Boolean(1));
 myShips.setTruth(0,2,new Boolean(1));
+*/
 //shipDragged("4ship");
 
 	
