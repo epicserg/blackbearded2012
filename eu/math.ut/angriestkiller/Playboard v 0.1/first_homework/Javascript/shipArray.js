@@ -25,12 +25,32 @@ var j;
    } 
    return(a); 
 } 
+function getMouseXY(e) {
 
-//var tempX = 0;
-//var tempY = 0;
-//document.captureEvents(Event.MOUSEMOVE);
-//document.onmousemove = getMouseXY;
+  // grab the x-y pos.s if browser is NS
+    tempX = e.pageX;
+    tempY = e.pageY;
+    
+  // catch possible negative values in NS4
+ 
+  // show the position values in the form named Show
+  // in the text fields named MouseX and MouseY
+	moveImage("ufo");
+  return true
+}
+/*
+function moveImage(id) {
+	//Keep on moving the image till the target is achieved
+	 x = tempX; 
+	 y = tempY;
+	document.getElementById(id).style.top  = y+'px';
+	document.getElementById(id).style.left = x+'px';
+}
 //var globalId=' ';
+
+var tempX = 0;
+var tempY = 0;
+*/
 var active=0;
 var diagonal=1;
 var myShips =new shipArray();//after confirm button pressed we'll need to load our ship possitions
