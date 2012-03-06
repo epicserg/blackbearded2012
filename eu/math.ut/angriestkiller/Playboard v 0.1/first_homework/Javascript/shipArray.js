@@ -1,8 +1,10 @@
+// A constuctor -- stores data on ships' coordinates.Stores function on retrieving and editing this information
 function shipArray(){
 	this.shipCoords=MultiArray(10,10);
 	this.getTruth=getTruth;
 	this.setTruth=setTruth;
 }
+//checks if there is a ship in a given cell
 function getTruth(i,j){
 	if(i>9||j>9||i<0||j<0){
 		return new Boolean(0);
@@ -14,6 +16,7 @@ function setTruth(i,j,Boolean){
 	//alert(Boolean +" is set at x " +j+ " y at "+ i) ; 
 	}	
 	
+//Creates array in an array and gives every element	boolean false
 function MultiArray(iRows,iCols) 
 { 
 var i; 
@@ -29,42 +32,56 @@ var j;
    } 
    return(a); 
 } 
-function getMouseXY(e) {
 
-  // grab the x-y pos.s if browser is NS
-    tempX = e.pageX;
-    tempY = e.pageY;
-    
-  // catch possible negative values in NS4
- 
-  // show the position values in the form named Show
-  // in the text fields named MouseX and MouseY
-	moveImage("ufo");
-  return true
-}
-/*
-function moveImage(id) {
-	//Keep on moving the image till the target is achieved
-	 x = tempX; 
-	 y = tempY;
-	document.getElementById(id).style.top  = y+'px';
-	document.getElementById(id).style.left = x+'px';
-}
-//var globalId=' ';
 
-var tempX = 0;
-var tempY = 0;
-*/
+//positions enemy ships on an enemy board --- only in version 0.2
+ function positionEnemyShips(){
+	//3ship
+	enemyShips.setTruth(0,0,new Boolean(1));
+	enemyShips.setTruth(0,1,new Boolean(1));
+	enemyShips.setTruth(0,2,new Boolean(1));
+	//4ship
+	enemyShips.setTruth(9,9,new Boolean(1));
+	enemyShips.setTruth(9,8,new Boolean(1));
+	enemyShips.setTruth(9,7,new Boolean(1));
+	enemyShips.setTruth(9,6,new Boolean(1));
+	//3ship
+	enemyShips.setTruth(9,4,new Boolean(1));
+	enemyShips.setTruth(9,3,new Boolean(1));
+	enemyShips.setTruth(9,2,new Boolean(1));
+	//1ship
+	enemyShips.setTruth(9,0,new Boolean(1));
+	//2ship
+	enemyShips.setTruth(7,4,new Boolean(1));
+	enemyShips.setTruth(7,3,new Boolean(1));
+	//2ship
+	enemyShips.setTruth(5,3,new Boolean(1));
+	enemyShips.setTruth(5,2,new Boolean(1));
+	//2ship
+	enemyShips.setTruth(5,9,new Boolean(1));
+	enemyShips.setTruth(5,8,new Boolean(1));
+	//1ship
+	enemyShips.setTruth(0,9,new Boolean(1));
+	//1ship
+	enemyShips.setTruth(0,7,new Boolean(1));
+	//1ship
+	enemyShips.setTruth(0,5,new Boolean(1));
+	
+	
+	
+}
+
+
+
+var gameIsPlayed=new Boolean(0);
 var myResourses=new Array(4,3,2,1);
 var active=0;
 var diagonal=1;
 var myShips =new shipArray();//after confirm button pressed we'll need to load our ship possitions
 var enemyShips= new shipArray();//after confirm  button pressed we'll need to load enemy's positions from net
-/*
-myShips.setTruth(0,0,new Boolean(1));
-myShips.setTruth(0,1,new Boolean(1));
-myShips.setTruth(0,2,new Boolean(1));
-*/
-//shipDragged("4ship");
+positionEnemyShips();
+
+
+
 
 	
