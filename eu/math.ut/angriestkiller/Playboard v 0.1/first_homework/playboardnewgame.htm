@@ -1,142 +1,161 @@
 <html>
 <head>
-<style type="text/css">
-.cell{
-width:28px;
-height:30px;
-line-height:50px;
-font-size:12px;
-float:left;
-border:1px solid black;
-text-align:center;
-}
+	<style type="text/css">
+		.cell{
+		width:28px;
+		height:30px;
+		line-height:50px;
+		font-size:12px;
+		float:left;
+		border:1px solid black;
+		text-align:center;
+		}
 
-</style>
+	</style>
+	<style type="text/css">
+		hide{display:none}
+	</style>
+	<style>
+		DIV.movable { position:absolute; }
+	</style>
 
+</div>
+	
 </head>
 <body>
 
+
 <table width="500" border="0">
-<tr>
-<td colspan="4" style="background-color:#FFA500;">
-<h1>Battleships v 0.1</h1>
-</td>
-</tr>
-<tr valign="top">
-<td style="background-color:#FFD720;height:300px;width:100px;text-align:top;">
+	<tr>
+		<td colspan="4" style="background-color:#FFA500;">
+			<hide id="front"><h1>Battleships v 0.2</h1></hide>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td style="background-color:#FFD720;height:300px;width:100px;text-align:top;">
 
-<input name="New Game" type="button" value="New Game" onclick="top.location.href='playboardnewgame.htm'" /> <br  />
-<input name="Score" type="button" value="Score" onclick="top.location.href='score.htm'" /> <br />
-<input name="Rules" type="button" value="Rules" onclick="top.location.href='rules.htm'" /> <br />
-<input name="Exit" type="button" value="Exit" onclick="top.location.href='playboard.htm'" /> <br />
-</td>
+			<input name="New Game" type="button" value="New Game" onclick="top.location.href='playboardnewgame.htm'" /> <br  />
+			<input name="Scoreo" type="button" value="Score" onclick="top.location.href='score.htm'" /> <br />
+			<input name="Rules" type="button" value="Rules" onclick="top.location.href='rules.htm'" /> <br />
+			<input name="Exit" type="button" value="Exit" onclick="top.location.href='playboard.htm'" /> <br />
+			<input name="New Game" type="button" value="Start!" onclick="startGame()" /> <br  />
+		</td>
 
 
-<td style="background-color:#EEEEEE;height:200px;width:60px;text-align:top;">
+	<td style="background-color:#EEEEEE;height:200px;width:60px;text-align:top;">
 
 
 <div id="table" style="width:300px;">
-<!-- FIRST ROW-->
-<div class="cell" id="1"><center><img src="pictures/left.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell" id="2"><center><img src="pictures/1shidboard.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/right.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/missed.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/up.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/1shidboard.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/down.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic1.0.0" onclick="released(1,0,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.0.1" onclick="released(1,0,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.0.2" onclick="released(1,0,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.0.3" onclick="released(1,0,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.0.4" onclick="released(1,0,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.0.5" onclick="released(1,0,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.0.6" onclick="released(1,0,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.0.7" onclick="released(1,0,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.0.8" onclick="released(1,0,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.0.9" onclick="released(1,0,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic1.1.0" onclick="released(1,1,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.1.1" onclick="released(1,1,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.1.2" onclick="released(1,1,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.1.3" onclick="released(1,1,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.1.4" onclick="released(1,1,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.1.5" onclick="released(1,1,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.1.6" onclick="released(1,1,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.1.7" onclick="released(1,1,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.1.8" onclick="released(1,1,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.1.9" onclick="released(1,1,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic1.2.0" onclick="released(1,2,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.2.1" onclick="released(1,2,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.2.2" onclick="released(1,2,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.2.3" onclick="released(1,2,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.2.4" onclick="released(1,2,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.2.5" onclick="released(1,2,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.2.6" onclick="released(1,2,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.2.7" onclick="released(1,2,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.2.8" onclick="released(1,2,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.2.9" onclick="released(1,2,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic1.3.0" onclick="released(1,3,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.3.1" onclick="released(1,3,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.3.2" onclick="released(1,3,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.3.3" onclick="released(1,3,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.3.4" onclick="released(1,3,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.3.5" onclick="released(1,3,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.3.6" onclick="released(1,3,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.3.7" onclick="released(1,3,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.3.8" onclick="released(1,3,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.3.9" onclick="released(1,3,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic1.4.0" onclick="released(1,4,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.4.1" onclick="released(1,4,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.4.2" onclick="released(1,4,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.4.3" onclick="released(1,4,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.4.4" onclick="released(1,4,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.4.5" onclick="released(1,4,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.4.6" onclick="released(1,4,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.4.7" onclick="released(1,4,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.4.8" onclick="released(1,4,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.4.9" onclick="released(1,4,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic1.5.0" onclick="released(1,5,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.5.1" onclick="released(1,5,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.5.2" onclick="released(1,5,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.5.3" onclick="released(1,5,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.5.4" onclick="released(1,5,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.5.5" onclick="released(1,5,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.5.6" onclick="released(1,5,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.5.7" onclick="released(1,5,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.5.8" onclick="released(1,5,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.5.9" onclick="released(1,5,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic1.6.0" onclick="released(1,6,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.6.1" onclick="released(1,6,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.6.2" onclick="released(1,6,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.6.3" onclick="released(1,6,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.6.4" onclick="released(1,6,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.6.5" onclick="released(1,6,5)"src="pictures/cell.jpg" 	alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.6.6" onclick="released(1,6,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.6.7" onclick="released(1,6,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.6.8" onclick="released(1,6,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.6.9" onclick="released(1,6,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic1.7.0" onclick="released(1,7,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.7.1" onclick="released(1,7,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.7.2" onclick="released(1,7,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.7.3" onclick="released(1,7,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.7.4" onclick="released(1,7,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.7.5" onclick="released(1,7,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.7.6" onclick="released(1,7,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.7.7" onclick="released(1,7,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.7.8" onclick="released(1,7,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.7.9" onclick="released(1,7,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic1.8.0" onclick="released(1,8,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.8.1" onclick="released(1,8,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.8.2" onclick="released(1,8,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.8.3" onclick="released(1,8,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.8.4" onclick="released(1,8,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.8.5" onclick="released(1,8,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.8.6" onclick="released(1,8,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.8.7" onclick="released(1,8,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.8.8" onclick="released(1,8,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.8.9" onclick="released(1,8,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic1.9.0" onclick="released(1,9,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.9.1" onclick="released(1,9,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.9.2" onclick="released(1,9,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.9.3" onclick="released(1,9,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.9.4" onclick="released(1,9,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.9.5" onclick="released(1,9,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.9.6" onclick="released(1,9,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.9.7" onclick="released(1,9,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.9.8" onclick="released(1,9,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.9.9" onclick="released(1,9,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 </div>
 
 
@@ -145,131 +164,147 @@ text-align:center;
 </td>
 
 <td style="background-color:#EEEEEE;height:200px;width:60px;text-align:top;">
-<img src="pictures/4ship.jpg" alt="some_text"/>
-<img src="pictures/3ship.jpg" alt="some_text"/>
-<img src="pictures/2ship.jpg" alt="some_text"/>
-<br><img src="pictures/1ship.jpg" alt="some_text"/>
-<br><img src="pictures/boom.jpg" alt="some_text"/>
-<br><img src="pictures/missed.jpg" alt="some_text"/>
+<div><img id="4ship"  onclick="shipDragged(4)" src="pictures/4ship.jpg" alt="some_text"/></div>
+<img id="3ship" onclick="shipDragged(3)" src="pictures/3ship.jpg" alt="some_text"/>
+<img id="2ship" onclick="shipDragged(2)" src="pictures/2ship.jpg" alt="some_text"/>
+<br><img id= "1ship" onclick="shipDragged(1)" src="pictures/1ship.jpg" alt="some_text"/> <br /> 
+<input name="Rotate" type="button" value="Rotate" onclick="rotate()" /> <br  />
+
+<!--<br><img src="pictures/boom.jpg" alt="some_text"/>
+<br><img src="pictures/missed.jpg" alt="some_text"/>-->
 </td>
 
 
 <td style="background-color:#EEEEEE;height:200px;width:60px;text-align:top;">
 <div id="table" style="width:300px;">
 <!-- FIRST ROW-->
-<div class="cell" id="1"><center><img src="pictures/missed.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell" id="2"><center><img src="pictures/boom.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/missed.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/missed.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/boom.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/boom.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/missed.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.0" onclick="bombed(2,0,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.1" onclick="bombed(2,0,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.2" onclick="bombed(2,0,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.3" onclick="bombed(2,0,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.4" onclick="bombed(2,0,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.5" onclick="bombed(2,0,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.6" onclick="bombed(2,0,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.7" onclick="bombed(2,0,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.8" onclick="bombed(2,0,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.9" onclick="bombed(2,0,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic2.1.0" onclick="bombed(2,1,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.1.1" onclick="bombed(2,1,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.1.2" onclick="bombed(2,1,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.1.3" onclick="bombed(2,1,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.1.4" onclick="bombed(2,1,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.1.5" onclick="bombed(2,1,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.1.6" onclick="bombed(2,1,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.1.7" onclick="bombed(2,1,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.1.8" onclick="bombed(2,1,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.1.9" onclick="bombed(2,1,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic2.2.0" onclick="bombed(2,2,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.2.1" onclick="bombed(2,2,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.2.2" onclick="bombed(2,2,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.2.3" onclick="bombed(2,2,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.2.4" onclick="bombed(2,2,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.2.5" onclick="bombed(2,2,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.2.6" onclick="bombed(2,2,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.2.7" onclick="bombed(2,2,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.2.8" onclick="bombed(2,2,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.2.9" onclick="bombed(2,2,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic2.3.0" onclick="bombed(2,3,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.3.1" onclick="bombed(2,3,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.3.2" onclick="bombed(2,3,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.3.3" onclick="bombed(2,3,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.3.4" onclick="bombed(2,3,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.3.5" onclick="bombed(2,3,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.3.6" onclick="bombed(2,3,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.3.7" onclick="bombed(2,3,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.3.8" onclick="bombed(2,3,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.3.9" onclick="bombed(2,3,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic2.4.0" onclick="bombed(2,4,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.4.1" onclick="bombed(2,4,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.4.2" onclick="bombed(2,4,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.4.3" onclick="bombed(2,4,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.4.4" onclick="bombed(2,4,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.4.5" onclick="bombed(2,4,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.4.6" onclick="bombed(2,4,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.4.7" onclick="bombed(2,4,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.4.8" onclick="bombed(2,4,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.4.9" onclick="bombed(2,4,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic2.5.0" onclick="bombed(2,5,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.5.1" onclick="bombed(2,5,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.5.2" onclick="bombed(2,5,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.5.3" onclick="bombed(2,5,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.5.4" onclick="bombed(2,5,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.5.5" onclick="bombed(2,5,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.5.6" onclick="bombed(2,5,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.5.7" onclick="bombed(2,5,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.5.8" onclick="bombed(2,5,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.5.9" onclick="bombed(2,5,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic2.6.0" onclick="bombed(2,6,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.6.1" onclick="bombed(2,6,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.6.2" onclick="bombed(2,6,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.6.3" onclick="bombed(2,6,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.6.4" onclick="bombed(2,6,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.6.5" onclick="bombed(2,6,5)"src="pictures/cell.jpg" 	alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.6.6" onclick="bombed(2,6,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.6.7" onclick="bombed(2,6,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.6.8" onclick="bombed(2,6,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.6.9" onclick="bombed(2,6,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic2.7.0" onclick="bombed(2,7,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.7.1" onclick="bombed(2,7,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.7.2" onclick="bombed(2,7,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.7.3" onclick="bombed(2,7,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.7.4" onclick="bombed(2,7,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.7.5" onclick="bombed(2,7,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.7.6" onclick="bombed(2,7,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.7.7" onclick="bombed(2,7,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.7.8" onclick="bombed(2,7,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.7.9" onclick="bombed(2,7,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic2.8.0" onclick="bombed(2,8,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.8.1" onclick="bombed(2,8,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.8.2" onclick="bombed(2,8,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.8.3" onclick="bombed(2,8,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.8.4" onclick="bombed(2,8,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.8.5" onclick="bombed(2,8,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.8.6" onclick="bombed(2,8,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.8.7" onclick="bombed(2,8,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.8.8" onclick="bombed(2,8,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.8.9" onclick="bombed(2,8,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+
+<div class="cell"><center><img id= "pic2.9.0" onclick="bombed(2,9,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.9.1" onclick="bombed(2,9,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.9.2" onclick="bombed(2,9,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.9.3" onclick="bombed(2,9,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.9.4" onclick="bombed(2,9,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.9.5" onclick="bombed(2,9,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.9.6" onclick="bombed(2,9,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.9.7" onclick="bombed(2,9,7)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.9.8" onclick="bombed(2,9,8)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.9.9" onclick="bombed(2,9,9)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 </div>
+
 </td>
 
 
 <tr>
-<td colspan="4" style="background-color:#FFA500;text-align:center;">
-Blackbearded 2012</td>
-
+	<td colspan="4" style="background-color:#FFA500;text-align:center;">
+		<hide id ="end" >Blackbearded 2012</hide>
+	</td>
 </tr>
 </table>
+	
 
 
-
-
+	<script type="text/javascript" src="Javascript/shipArray.js"></script> 
+	<script type="text/javascript" src="JQuery/jQuery.js"></script>
+	<script type="text/javascript" src="JQuery/functions.js"></script>
+	<script type="text/javascript" src="Javascript/MainBoard.js"></script>
+	
 </body>
 </html>
