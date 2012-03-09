@@ -1,7 +1,7 @@
 <html>
 <head>
 	<style type="text/css">
-		.cell{
+	.cell{
 		width:28px;
 		height:30px;
 		line-height:50px;
@@ -10,14 +10,16 @@
 		border:1px solid black;
 		text-align:center;
 		}
-
 	</style>
 	<style type="text/css">
 		hide{display:none}
 	</style>
 	<style>
 		DIV.movable { position:absolute; }
-	</style>	
+	</style>
+
+</div>
+	
 </head>
 <body>
 
@@ -25,16 +27,17 @@
 <table width="500" border="0">
 	<tr>
 		<td colspan="4" style="background-color:#FFA500;">
-			<hide id="front"><h1>Battleships v 0.1</h1></hide>
+			<hide id="front"><h1>Battleships v 0.2</h1></hide>
 		</td>
 	</tr>
 	<tr valign="top">
 		<td style="background-color:#FFD720;height:300px;width:100px;text-align:top;">
 
-			<input name="New Game" type="button" value="New Game" onclick="top.location.href='newplayer.htm'" /> <br  />
+			<input name="New Game" type="button" value="New Game" onclick="top.location.href='playboardnewgame.htm'" /> <br  />
 			<input name="Scoreo" type="button" value="Score" onclick="top.location.href='score.htm'" /> <br />
 			<input name="Rules" type="button" value="Rules" onclick="top.location.href='rules.htm'" /> <br />
-			<input name="Exit" type="button" value="Exit" onclick="top.location.href='main.htm'" /> <br />
+			<input name="Exit" type="button" value="Exit" onclick="top.location.href='playboard.htm'" /> <br />
+			<input name="New Game" type="button" value="Start!" onclick="startGame()" /> <br  />
 		</td>
 
 
@@ -43,10 +46,10 @@
 
 <div id="table" style="width:300px;">
 
-<div class="cell"><center><img id= "pic1.0.0" onclick="released(1,0,0)"src="pictures/left.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img id= "pic1.0.1" onclick="released(1,0,1)"src="pictures/1shidboard.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img id= "pic1.0.2" onclick="released(1,0,2)"src="pictures/right.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img id= "pic1.0.3" onclick="released(1,0,3)"src="pictures/missed.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.0.0" onclick="released(1,0,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.0.1" onclick="released(1,0,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.0.2" onclick="released(1,0,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.0.3" onclick="released(1,0,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.0.4" onclick="released(1,0,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.0.5" onclick="released(1,0,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.0.6" onclick="released(1,0,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
@@ -57,7 +60,7 @@
 <div class="cell"><center><img id= "pic1.1.0" onclick="released(1,1,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.1.1" onclick="released(1,1,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.1.2" onclick="released(1,1,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img id= "pic1.1.3" onclick="released(1,1,3)"src="pictures/up.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.1.3" onclick="released(1,1,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.1.4" onclick="released(1,1,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.1.5" onclick="released(1,1,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.1.6" onclick="released(1,1,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
@@ -68,7 +71,7 @@
 <div class="cell"><center><img id= "pic1.2.0" onclick="released(1,2,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.2.1" onclick="released(1,2,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.2.2" onclick="released(1,2,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img id= "pic1.2.3" onclick="released(1,2,3)"src="pictures/1shidboard.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.2.3" onclick="released(1,2,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.2.4" onclick="released(1,2,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.2.5" onclick="released(1,2,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.2.6" onclick="released(1,2,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
@@ -79,7 +82,7 @@
 <div class="cell"><center><img id= "pic1.3.0" onclick="released(1,3,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.3.1" onclick="released(1,3,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.3.2" onclick="released(1,3,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img id= "pic1.3.3" onclick="released(1,3,3)"src="pictures/down.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic1.3.3" onclick="released(1,3,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.3.4" onclick="released(1,3,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.3.5" onclick="released(1,3,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic1.3.6" onclick="released(1,3,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
@@ -159,53 +162,25 @@
 
 </td>
 
-<!--
-DONT KNOW HOW TO INTEGRATE YOR PART HERE, HOPE YOULL DO IN YORSELF
 <td style="background-color:#EEEEEE;height:200px;width:60px;text-align:top;">
 <div><img id="4ship"  onclick="shipDragged(4)" src="pictures/4ship.jpg" alt="some_text"/></div>
 <img id="3ship" onclick="shipDragged(3)" src="pictures/3ship.jpg" alt="some_text"/>
 <img id="2ship" onclick="shipDragged(2)" src="pictures/2ship.jpg" alt="some_text"/>
-<br><img id= "1ship" onclick="shipDragged(1)" src="pictures/1ship.jpg" alt="some_text"/>
+<br><img id= "1ship" onclick="shipDragged(1)" src="pictures/1ship.jpg" alt="some_text"/> <br /> 
+<input name="Rotate" type="button" value="Rotate" onclick="rotate()" /> <br  />
+
 <!--<br><img src="pictures/boom.jpg" alt="some_text"/>
 <br><img src="pictures/missed.jpg" alt="some_text"/>-->
 </td>
-//-->
-
-
-<td style="background-color:#EEEEEE;height:40px;width:30px;text-align:top;">
-<div id="table" style="width:120px;">
-<!-- FIRST ROW-->
-<div class="cell"><center><img src="pictures/left.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/1shidboard.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/1shidboard.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/right.jpg" alt="cell" width="28" height="30" /></div>
-<br>
-<div class="cell"><center><img src="pictures/left.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/1shidboard.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img src="pictures/right.jpg" alt="cell" width="28" height="30" /></div>
-<pre></pre>
-
-<br>.<div class="cell"><center><img src="pictures/left.jpg" alt="cell" width="28" height="30" ALIGN=LEFT /></div>
-<div class="cell"><center><img src="pictures/right.jpg" alt="cell" width="28" height="30" ALIGN=RIGHT /></div></br>
-
-<pre></pre>
-
-<br><img src="pictures/1ship.jpg" alt="some_text"/></br>
-<br><img src="pictures/boom.jpg" alt="some_text"/></br>
-<br><img src="pictures/missed.jpg" alt="some_text"/></br>
-</td>
-
-
-
 
 
 <td style="background-color:#EEEEEE;height:200px;width:60px;text-align:top;">
 <div id="table" style="width:300px;">
 <!-- FIRST ROW-->
-<div class="cell"><center><img id= "pic2.0.0" onclick="bombed(2,0,0)"src="pictures/left.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img id= "pic2.0.1" onclick="bombed(2,0,1)"src="pictures/1shidboard.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img id= "pic2.0.2" onclick="bombed(2,0,2)"src="pictures/right.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img id= "pic2.0.3" onclick="bombed(2,0,3)"src="pictures/missed.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.0" onclick="bombed(2,0,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.1" onclick="bombed(2,0,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.2" onclick="bombed(2,0,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.0.3" onclick="bombed(2,0,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.0.4" onclick="bombed(2,0,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.0.5" onclick="bombed(2,0,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.0.6" onclick="bombed(2,0,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
@@ -216,7 +191,7 @@ DONT KNOW HOW TO INTEGRATE YOR PART HERE, HOPE YOULL DO IN YORSELF
 <div class="cell"><center><img id= "pic2.1.0" onclick="bombed(2,1,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.1.1" onclick="bombed(2,1,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.1.2" onclick="bombed(2,1,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img id= "pic2.1.3" onclick="bombed(2,1,3)"src="pictures/up.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.1.3" onclick="bombed(2,1,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.1.4" onclick="bombed(2,1,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.1.5" onclick="bombed(2,1,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.1.6" onclick="bombed(2,1,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
@@ -227,7 +202,7 @@ DONT KNOW HOW TO INTEGRATE YOR PART HERE, HOPE YOULL DO IN YORSELF
 <div class="cell"><center><img id= "pic2.2.0" onclick="bombed(2,2,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.2.1" onclick="bombed(2,2,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.2.2" onclick="bombed(2,2,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img id= "pic2.2.3" onclick="bombed(2,2,3)"src="pictures/1shidboard.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.2.3" onclick="bombed(2,2,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.2.4" onclick="bombed(2,2,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.2.5" onclick="bombed(2,2,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.2.6" onclick="bombed(2,2,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
@@ -238,7 +213,7 @@ DONT KNOW HOW TO INTEGRATE YOR PART HERE, HOPE YOULL DO IN YORSELF
 <div class="cell"><center><img id= "pic2.3.0" onclick="bombed(2,3,0)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.3.1" onclick="bombed(2,3,1)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.3.2" onclick="bombed(2,3,2)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
-<div class="cell"><center><img id= "pic2.3.3" onclick="bombed(2,3,3)"src="pictures/down.jpg" alt="cell" width="28" height="30" /></div>
+<div class="cell"><center><img id= "pic2.3.3" onclick="bombed(2,3,3)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.3.4" onclick="bombed(2,3,4)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.3.5" onclick="bombed(2,3,5)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>
 <div class="cell"><center><img id= "pic2.3.6" onclick="bombed(2,3,6)"src="pictures/cell.jpg" alt="cell" width="28" height="30" /></div>

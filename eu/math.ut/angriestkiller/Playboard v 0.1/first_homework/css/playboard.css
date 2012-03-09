@@ -1,0 +1,29 @@
+TABLE{
+  width="500";
+  border="0";
+  } 
+  /*table*/
+  
+  #firstd{
+  background-color:#FFD720;
+  width:120px;
+  text-align:top;
+  }
+  
+ #secondtd{
+ background-color:#FFD720;
+ width:120px;
+ text-align:top;
+ }
+ 
+ #thirdtd{
+ background-color:#EEEEEE;
+ height:200px;
+ width:400px;
+ text-align:top;
+ }
+ 
+ #fourthtd{
+ background-color:#FFA500;
+text-align:center;
+ }
