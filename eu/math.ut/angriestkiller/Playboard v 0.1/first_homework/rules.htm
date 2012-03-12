@@ -1,53 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
 <html>
 <head>
-<style type="text/css">
-h1 {text-align:center;}
-p.date {text-align:right;}
-p.main {text-align:justify;}
-</style>
+<link rel="stylesheet" type="text/css" href="css/playboard.css" />
 </head>
-
 <body>
+ <table>
+  <tr>
+    <td id="firstd" colspan="2">
+    <h1>Battleships v 0.1</h1>
+  </td>
+    </tr>
 
-<table width="500" border="0">
-<tr>
-<td colspan="2" style="background-color:#FFA500;">
-<h1>Battleships v 0.1</h1>
-</td>
-</tr>
+    <tr valign="top">
+      <td id="secondtd"><input name=
+      "New Game" type="button" value="New Game" onclick=
+      "top.location.href='playboard%20new%20game.htm'"><br>
+      <input name="Score" type="button" value="Score" onclick=
+      "top.location.href='score.htm'"><br>
+      <input name="Rules" type="button" value="Rules" onclick=
+      "top.location.href='rules.htm'"><br>
+      <input name="Exit" type="button" value="Exit" onclick=
+      "top.location.href='playboard.htm'"><br></td>
 
-<tr valign="top">
-<td style="background-color:#FFD720;width:120px;text-align:top;">
-<input name="New Game" type="button" value="New Game" onclick="top.location.href='playboard%20new%20game.htm'" /> <br />
-<input name="Score" type="button" value="Score" onclick="top.location.href='score.htm'" /> <br />
-<input name="Rules" type="button" value="Rules" onclick="top.location.href='rules.htm'" /> <br />
-<input name="Exit" type="button" value="Exit" onclick="top.location.href='playboard.htm'" /> <br />
-</td>
-<td style="background-color:#EEEEEE;height:200px;width:400px;text-align:top;">
-<body>
-<h1>Battleship rules</h1>
-<p class="date">February, 2012</p>
-<p class="main">
-<br>Players take turns firing a shot to attack enemy ships.
-<br>
+      <td id="thirdtd">
+        <h1>Battleship rules</h1>
 
-<br>On your turn, call out a letter and a number of a row and column on the grid. Your opponent checks that space on their lower grid, and says "miss" if there are no ships there, or "hit" if you guessed a space that contained a ship.
-<br>
-<br>Mark your shots on your upper grid, with white pegs for misses and red pegs for hits, to keep track of your guesses.
-<br>
-<br>When one of your ships is hit, put a red peg into that ship on your lower grid at the location of the hit. Whenever one of your ships has every slot filled with red pegs, you must announce to your opponent that he has sunk your ship.
-<br>
-<br>The first player to sink all opposing ships wins.
-<br>
-</p>
-</body>
-</tr>
+        <p class="date">February, 2012</p>
 
-<tr>
-<td colspan="2" style="background-color:#FFA500;text-align:center;">
+        <p class="main"><br>
+        Players take turns firing a shot to attack enemy ships.<br>
+        <br>
+        On your turn, call out a letter and a number of a row and column on the grid.
+        Your opponent checks that space on their lower grid, and says "miss" if there are
+        no ships there, or "hit" if you guessed a space that contained a ship.<br>
+        <br>
+        Mark your shots on your upper grid, with white pegs for misses and red pegs for
+        hits, to keep track of your guesses.<br>
+        <br>
+        When one of your ships is hit, put a red peg into that ship on your lower grid at
+        the location of the hit. Whenever one of your ships has every slot filled with
+        red pegs, you must announce to your opponent that he has sunk your ship.<br>
+        <br>
+        The first player to sink all opposing ships wins.<br></p>
+      </td>
+    </tr>
+
+    <tr>
+      <td id="fourthtd"colspan="2">
 Blackbearded 2012</td>
-</tr>
-</table>
-
+  </tr>
+    </tr>
+  </table>
 </body>
 </html>

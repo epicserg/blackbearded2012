@@ -1,14 +1,33 @@
-//Responds to an attemt of the player to bomb the ship
+//Responds to an attempt of the player to bomb the ship
+
+
 function bombed(c,a,b)
-  {	
+{	
 	if(gameIsPlayed==true){
 		if(enemyShips.getTruth(a,b)==true){
-		
-			document.getElementById("pic"+c+"."+a+"."+b).src="pictures/boom.jpg";
+		document.getElementById("pic"+c+"."+a+"."+b).src="pictures/boom.jpg";
 			//TODO add animation when the enemy ship is blown up!!!
+			bombedBot(1,Math.floor(Math.random()*10),Math.floor(Math.random()*10));
 			}
 		else{
 			document.getElementById("pic"+c+"."+a+"."+b).src="pictures/missed.jpg";
+			bombedBot(1,Math.floor(Math.random()*10),Math.floor(Math.random()*10));
+		}
+	}
+  }
+
+
+//simulation of bombing players ships by enemy
+function bombedBot(a,b,c)
+  {	
+	if(gameIsPlayed==true){
+		if(myShips.getTruth(b,c)==true){
+		  document.getElementById("pic"+a+"."+b+"."+c).src="pictures/boom.jpg";
+			//TODO add animation when my ship is blown up!!!
+			}
+		else{
+			document.getElementById("pic"+a+"."+b+"."+c).src="pictures/missed.jpg";
+		  
 		}
 	}
   }
