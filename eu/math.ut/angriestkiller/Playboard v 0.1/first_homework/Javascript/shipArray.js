@@ -34,53 +34,9 @@ var j;
 } 
 
 
-//positions enemy ships on an enemy board --- only in version 0.2
- function positionEnemyShips(){
-	//3ship
-	enemyShips.setTruth(0,0,new Boolean(1));
-	enemyShips.setTruth(0,1,new Boolean(1));
-	enemyShips.setTruth(0,2,new Boolean(1));
-	//4ship
-	enemyShips.setTruth(9,9,new Boolean(1));
-	enemyShips.setTruth(9,8,new Boolean(1));
-	enemyShips.setTruth(9,7,new Boolean(1));
-	enemyShips.setTruth(9,6,new Boolean(1));
-	//3ship
-	enemyShips.setTruth(9,4,new Boolean(1));
-	enemyShips.setTruth(9,3,new Boolean(1));
-	enemyShips.setTruth(9,2,new Boolean(1));
-	//1ship
-	enemyShips.setTruth(9,0,new Boolean(1));
-	//2ship
-	enemyShips.setTruth(7,4,new Boolean(1));
-	enemyShips.setTruth(7,3,new Boolean(1));
-	//2ship
-	enemyShips.setTruth(5,3,new Boolean(1));
-	enemyShips.setTruth(5,2,new Boolean(1));
-	//2ship
-	enemyShips.setTruth(5,9,new Boolean(1));
-	enemyShips.setTruth(5,8,new Boolean(1));
-	//1ship
-	enemyShips.setTruth(0,9,new Boolean(1));
-	//1ship
-	enemyShips.setTruth(0,7,new Boolean(1));
-	//1ship
-	enemyShips.setTruth(0,5,new Boolean(1));
-	
-	
-	
-}
 
 
-
-var gameIsPlayed=new Boolean(0);
-var myResourses=new Array(4,3,2,1);
-var active=0;
-var diagonal=1;
-var myShips =new shipArray();//after confirm button pressed we'll need to load our ship possitions
-var enemyShips= new shipArray();//after confirm  button pressed we'll need to load enemy's positions from net
-positionEnemyShips();
-
+//var engine=new theEngine(0,0);
 
 
 

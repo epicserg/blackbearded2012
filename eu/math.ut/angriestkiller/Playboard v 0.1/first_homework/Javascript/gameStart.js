@@ -1,36 +1,3 @@
-//Responds to an attempt of the player to bomb the ship
-
-
-function bombed(c,a,b)
-{	
-	if(gameIsPlayed==true){
-		if(enemyShips.getTruth(a,b)==true){
-		document.getElementById("pic"+c+"."+a+"."+b).src="pictures/boom.jpg";
-			//TODO add animation when the enemy ship is blown up!!!
-			bombedBot(1,Math.floor(Math.random()*10),Math.floor(Math.random()*10));
-			}
-		else{
-			document.getElementById("pic"+c+"."+a+"."+b).src="pictures/missed.jpg";
-			bombedBot(1,Math.floor(Math.random()*10),Math.floor(Math.random()*10));
-		}
-	}
-  }
-
-
-//simulation of bombing players ships by enemy
-function bombedBot(a,b,c)
-  {	
-	if(gameIsPlayed==true){
-		if(myShips.getTruth(b,c)==true){
-		  document.getElementById("pic"+a+"."+b+"."+c).src="pictures/boom.jpg";
-			//TODO add animation when my ship is blown up!!!
-			}
-		else{
-			document.getElementById("pic"+a+"."+b+"."+c).src="pictures/missed.jpg";
-		  
-		}
-	}
-  }
 
 //TODO this function should highlight cells where the ship can be placed. Should be called when mouse is above the cell
 /*
@@ -40,7 +7,7 @@ function highlight(x,y){
 
 */
 
-//TODO this function should unhighlight cells where the ship can be placed. Should be called when mouse ismoved outward the cell
+//TODO this function should unhighlight cells where the ship can be placed. Should be called when mouse iszzzmoved outward the cell
 /*
 function unHighlight(x,y){
 
@@ -53,7 +20,7 @@ function unHighlight(x,y){
 function shipDragged(n){
 	
 	//TODO Highlight this kind of ship
-	alert(n);
+	//alert(n);
 	active=n;   
 	
   }
@@ -80,14 +47,14 @@ function checkValidityDiag(y,x1,x2){
 	var returnValue=new Boolean(0);
 		for(i=y-1;i<y+2;i++){
 			for(j=x1-1;j<x2+2;j++){
-				//alert("x is "+j+" y is " +i+"  " +myShips.getTruth(i,j));
+				//alert("x is "+j+" y is " +i+"  " +engine.myShips.getTruth(i,j));
 				if(diagonal==1){
-					if(myShips.getTruth(i,j)==true){
+					if(engine.myShips.getTruth(i,j)==true){
 						returnValue=new Boolean(1);
 					}
 				}
 				else{
-					if(myShips.getTruth(j,i)==true){
+					if(engine.myShips.getTruth(j,i)==true){
 						returnValue=new Boolean(1);
 					}
 				}
@@ -100,7 +67,7 @@ function checkValidityDiag(y,x1,x2){
 //Edit's ship position object and chaanges pic on the board
 function addShip(a,y,x){
 	document.getElementById("pic"+a+"."+y+"."+x).src="pictures/1shidboard.jpg";
-	myShips.setTruth(y,x,new Boolean(1));
+	engine.myShips.setTruth(y,x,new Boolean(1));
 
 }
 function released(a,y,x){
@@ -178,6 +145,9 @@ function clearShips(){
 			var number=i+1;
 			document.getElementById(number+'ship').style.visibility = 'hidden'; 
 			myResourses[i]--;
+			if(active>1){
+				active--;
+			}
 		}
 	}
 
@@ -206,5 +176,9 @@ function rotate(){
 	}
 }
 
+var gameIsPlayed=new Boolean(0);
+var myResourses=new Array(4,3,2,1);
+var active=0;
+var diagonal=1;
 
 
