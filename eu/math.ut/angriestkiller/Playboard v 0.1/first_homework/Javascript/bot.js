@@ -30,25 +30,4 @@ function bombPlayer(){
 	
 	
 }	
-
-//simulation of bombing players ships by enemy
-function bombedByBot(b,c)
-  {	
-
-
-
-	
-		if(engine.myShips.getTruth(b,c)==true){
-		  document.getElementById("pic1"+"."+b+"."+c).src="pictures/boom.jpg";
-		  engine.myShipBombed();
-			//TODO add animation when my ship is blown up!!!
-			}
-		else{
-			document.getElementById("pic1"+"."+b+"."+c).src="pictures/missed.jpg";
-		  
-		}
-		engine.setMyFieldToBombed(b,c);
-	
-
-  }
 var theBot=new randomStrategyBot();

@@ -37,6 +37,7 @@ function shipDragged(n){
 	if(checkBool==0){
 		gameIsPlayed=new Boolean(1);
 		alert("round 1 - fight");
+		//testPlay();
 	}
 	else{
 		alert("You didn't plase all ships");

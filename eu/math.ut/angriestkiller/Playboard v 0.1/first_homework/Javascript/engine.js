@@ -15,6 +15,22 @@ function bombed(c,a,b)
 		theBot.bombPlayer();
 	}
   }
+//simulation of bombing players ships by enemy
+function bombedByBot(b,c)
+  {	
+			if(engine.myShips.getTruth(b,c)==true){
+		  document.getElementById("pic1"+"."+b+"."+c).src="pictures/boom.jpg";
+		  engine.myShipBombed();
+			//TODO add animation when my ship is blown up!!!
+			}
+		else{
+			document.getElementById("pic1"+"."+b+"."+c).src="pictures/missed.jpg";
+		  
+		}
+		engine.setMyFieldToBombed(b,c);
+	
+
+  }
 
 function theEngine(myShipsDestroyed1,enemyShipsDestroyed1){
 	this.myShipsDestroyed=myShipsDestroyed1;
@@ -93,10 +109,18 @@ function enemyShipBombed(){
 	
 	
 	
+}/*
+function testPlay(){
+	for(i=0;i<10;i++){
+		for(j=0;j<10;j++){
+			//setTimeout("alert("oooo");",1250);
+			bombed(2,i,j);
+		}}
 }
-
+*/
 var engine=new theEngine(0,0);
 
 positionEnemyShips();
+
 
 
