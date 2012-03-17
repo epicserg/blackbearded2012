@@ -17,12 +17,10 @@ function unHighlight(x,y){
 
 
 //Set's selected ship to be dragged.
-function shipDragged(n){
-	
+function shipDragged(n){	
 	//TODO Highlight this kind of ship
 	//alert(n);
-	active=n;   
-	
+	active=n; 
   }
   
   
@@ -69,10 +67,56 @@ function checkValidityDiag(y,x1,x2){
 function addShip(a,y,x){
 	document.getElementById("pic"+a+"."+y+"."+x).src="pictures/1shidboard.jpg";
 	engine.myShips.setTruth(y,x,new Boolean(1));
+	
+}
 
+function removePosition(y,x){
+	var nShip=1;
+	engine.myShips.setTruth(y,x,new Boolean(0));
+	document.getElementById("pic"+1+"."+y+"."+x).src="pictures/cell.jpg";
+	if(engine.getmyShipsPosition(y+1,x)==true){
+		nShip=nShip+removePosition(y+1,x);
+	}
+	if(engine.getmyShipsPosition(y-1,x)==true){
+		nShip=nShip+removePosition(y-1,x);
+	}
+	if(engine.getmyShipsPosition(y,1+x)==true){
+		nShip=nShip+removePosition(y,1+x);
+	}
+	if(engine.getmyShipsPosition(y,x-1)==true){
+		nShip=nShip+removePosition(y,x-1);
+	}
+	return nShip;
+}
+
+function removeTheShip(a,y,x){
+
+	if(engine.getmyShipsPosition(y+1,x)==true||engine.getmyShipsPosition(y-1,x)==true){
+			diagonal=0;
+		}
+		if(engine.getmyShipsPosition(y,x+1)==true||engine.getmyShipsPosition(y,x-1)==true){
+			diagonal=1;
+		}
+		var position=removePosition(y,x)-1;
+		var idi=position+1;
+		if(myResourses[position]==-1){
+			myResourses[position]=myResourses[position]+2;	
+		}
+		else{
+			myResourses[position]=myResourses[position]+1;	
+		}
+		//alert(myResourses[0]+" "+myResourses[1]+" "+myResourses[2]+" "+myResourses[3]);
+		if(myResourses[position]==1){
+			document.getElementById(idi+'ship').style.visibility = 'visible'; 
+			active=idi;
+		}
+	
 }
 function released(a,y,x){
-	
+	if(engine.getmyShipsPosition(y,x)==true && gameIsPlayed==false){	
+		 removeTheShip(a,y,x)
+	}
+	else{
 	if(diagonal==1){
 		var info= countCoord(active,x);
 		if(checkValidityDiag(y,info[0],info[1])==false){
@@ -137,7 +181,10 @@ function released(a,y,x){
 		
 		}
 	}
+	
 	clearShips();
+	//alert(myResourses[0]+" "+myResourses[1]+" "+myResourses[2]+" d "+myResourses[3]);
+	}
 }
 //deletes a ship picture if all ships of this kind are placed
 function clearShips(){
@@ -179,7 +226,7 @@ function rotate(){
 
 var gameIsPlayed=new Boolean(0);
 var myResourses=new Array(4,3,2,1);
-var active=0;
+var active=4;
 var diagonal=1;
 
 
