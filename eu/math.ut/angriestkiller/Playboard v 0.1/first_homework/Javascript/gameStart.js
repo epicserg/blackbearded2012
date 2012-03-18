@@ -1,30 +1,14 @@
-
-//TODO this function should highlight cells where the ship can be placed. Should be called when mouse is above the cell
-/*
-function highlight(x,y){
-
+//c stands for which part of board.  a,b for cell coordinates.
+function changeElementPicture(c,a,b,pictureSource){
+	document.getElementById("pic"+c+"."+a+"."+b).src=pictureSource;
 }
-
-*/
-
-//TODO this function should unhighlight cells where the ship can be placed. Should be called when mouse iszzzmoved outward the cell
-/*
-function unHighlight(x,y){
-
-}
-
-*/
-
-
 //Set's selected ship to be dragged.
 function shipDragged(n){	
-	//TODO Highlight this kind of ship
-	//alert(n);
 	active=n; 
   }
   
   
- //Makes checks , so the game would begin 
+ //Makes checks , if the game can begin and starts one
  function startGame(){
 	var checkBool=0;
 	for(i =0;i<4;i++){
@@ -35,7 +19,7 @@ function shipDragged(n){
 	if(checkBool==0){
 		gameIsPlayed=new Boolean(1);
 		alert("round 1 - fight");
-		//testPlay();
+		
 	}
 	else{
 		alert("You didn't plase all ships");
@@ -46,8 +30,8 @@ function checkValidityDiag(y,x1,x2){
 	var returnValue=new Boolean(0);
 		for(i=y-1;i<y+2;i++){
 			for(j=x1-1;j<x2+2;j++){
-				//alert("x is "+j+" y is " +i+"  " +engine.myShips.getTruth(i,j));
-				if(diagonal==1){
+				
+				if(horisontalPlacement==1){
 					if(engine.myShips.getTruth(i,j)==true){
 						returnValue=new Boolean(1);
 					}
@@ -63,13 +47,14 @@ function checkValidityDiag(y,x1,x2){
 	
 }
 
-//Edit's ship position object and chaanges pic on the board
+//Edit's ship position object and changes pic on the board
 function addShip(a,y,x){
 	document.getElementById("pic"+a+"."+y+"."+x).src="pictures/1shidboard.jpg";
 	engine.myShips.setTruth(y,x,new Boolean(1));
 	
 }
-
+//A recursive function. Deletes presence of ship,
+	//and asks nearby cells which have ship part to do the same thing 
 function removePosition(y,x){
 	var nShip=1;
 	engine.myShips.setTruth(y,x,new Boolean(0));
@@ -92,10 +77,10 @@ function removePosition(y,x){
 function removeTheShip(a,y,x){
 
 	if(engine.getmyShipsPosition(y+1,x)==true||engine.getmyShipsPosition(y-1,x)==true){
-			diagonal=0;
+			horisontalPlacement=0;
 		}
 		if(engine.getmyShipsPosition(y,x+1)==true||engine.getmyShipsPosition(y,x-1)==true){
-			diagonal=1;
+			horisontalPlacement=1;
 		}
 		var position=removePosition(y,x)-1;
 		var idi=position+1;
@@ -105,19 +90,19 @@ function removeTheShip(a,y,x){
 		else{
 			myResourses[position]=myResourses[position]+1;	
 		}
-		//alert(myResourses[0]+" "+myResourses[1]+" "+myResourses[2]+" "+myResourses[3]);
 		if(myResourses[position]==1){
 			document.getElementById(idi+'ship').style.visibility = 'visible'; 
 			active=idi;
 		}
 	
 }
+//places your ships on your field
 function released(a,y,x){
 	if(engine.getmyShipsPosition(y,x)==true && gameIsPlayed==false){	
 		 removeTheShip(a,y,x)
 	}
 	else{
-	if(diagonal==1){
+	if(horisontalPlacement==1){
 		var info= countCoord(active,x);
 		if(checkValidityDiag(y,info[0],info[1])==false){
 			if(active==4 && myResourses[3]>0){
@@ -183,10 +168,10 @@ function released(a,y,x){
 	}
 	
 	clearShips();
-	//alert(myResourses[0]+" "+myResourses[1]+" "+myResourses[2]+" d "+myResourses[3]);
+
 	}
 }
-//deletes a ship picture if all ships of this kind are placed
+//deletes a ship picture in a centre if all ships of this kind are placed
 function clearShips(){
 	for(i=0;i<4;i++){
 		if(myResourses[i]==0){
@@ -202,6 +187,8 @@ function clearShips(){
 }
 
 //calculates where ship should be placed
+//TODO we may make this function more advanced , 
+		//so it may take positioned ships into an account.
 function countCoord(n,coordinate){
 	var returnValue;
 	
@@ -214,19 +201,19 @@ function countCoord(n,coordinate){
 		return returnValue;
 	}
 }
-//changes var rotate ,so ship's axis is rotated 90 degrees.
+//changes var horisontalPlacement ,so ship's axis is rotated 90 degrees.
 function rotate(){
-	if(diagonal==1){
-		diagonal=0;
+	if(horisontalPlacement==1){
+		horisontalPlacement=0;
 	}
 	else{
-		diagonal=1;
+		horisontalPlacement=1;
 	}
 }
 
 var gameIsPlayed=new Boolean(0);
 var myResourses=new Array(4,3,2,1);
 var active=4;
-var diagonal=1;
+var horisontalPlacement=1;
 
 

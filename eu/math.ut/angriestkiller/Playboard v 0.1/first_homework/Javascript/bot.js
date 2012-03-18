@@ -2,9 +2,10 @@ function randomStrategyBot(){
 	this.bombPlayer=bombPlayer;
 	this.cellsToBomb=100;
 }
+//selects which cell should be bombed and calls the bomb command
 function bombPlayer(){
 	var randomFactor= Math.floor(Math.random()*this.cellsToBomb);
-	var randomChoise1=0;var randomChoise2=0;
+	var randomChoiseX=0;var randomChoiseY=0;
 	var loopBreak=new Boolean(0);
 	for(i=0;i<10;i++){
 		for(j=0;j<10;j++){
@@ -12,11 +13,10 @@ function bombPlayer(){
 				randomFactor--;
 				if(randomFactor==0){
 
-					randomChoise1=i;randomChoise2=j;
+					randomChoiseX=i;randomChoiseY=j;
 					loopBreak=new Boolean(1);
 					break;
 				}
-				
 			}
 		}
 		if(loopBreak==true){
@@ -24,9 +24,8 @@ function bombPlayer(){
 		}
 		
 	}
-	//alert(randomFactor+" "+randomChoise1+" "+randomChoise2);
 	this.cellsToBomb--;
-	bombedByBot(randomChoise1,randomChoise2);
+	bombedByBot(randomChoiseX,randomChoiseY);
 	
 	
 }	

@@ -45,15 +45,14 @@ border: 0px solid #ccc;
 .highlightitCell:hover img{
 border: 0px solid red;
 }
-
-/*.cell:hover {
+.cell:hover {
 	filter:alpha(opacity=150);
 	 ..-opacity:0.5; 
 	 opacity:0.5; 
 	 -khtml-opacity:0.5;
 	 background-color:#8aefc3;
 }
-*/
+
 
 omg {
 onMouseover="roll(this, 'yellow', 'black');
