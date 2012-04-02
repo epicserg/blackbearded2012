@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>getName</title>
+<script type="text/javascript">
+function getName(){
+name = document.forms["reg"].elements["name"].value;
+document.getElementsByTagName("h3")[0].innerHTML = name; 
+document.getElementById('reg').style.display='none';
+}
+</script>
+</head>
+<body>
+
+<table width="500" border="0">
+<tr>
+<td colspan="2" style="background-color:#FFA500;">
+<h1>Battleships v 0.1</h1>
+</td>
+</tr>
+
+<tr valign="top">
+<td style="background-color:#FFD720;width:120px;text-align:top;">
+<input name="New Game" type="button" value="New Game" onclick="top.location.href='NewPlayer.htm'" /> <br />
+<input name="Score" type="button" value="Score" onclick="top.location.href='score.htm'" /> <br />
+<input name="Rules" type="button" value="Rules" onclick="top.location.href='rules.htm'" /> <br />
+<input name="Exit" type="button" value="Exit" onclick="top.location.href='main.htm'" /> <br />
+</td>
+<td style="background-color:#EEEEEE;height:200px;width:400px;text-align:top;">
+
+<h2>Welcome,</h2>
+<form id="reg" name="reg">
+NickName: <input text="text" id="name" name="name" />
+<input type="button" value="submit" onClick="getName();" />
+</form>
+
+<h3>what's your name?</h1>
+
+<div class="select">
+<select name="enemy" size="10" class="list">
+<option value="0" selected="selected">Choose your enemy</option>
+<option value="1">Blackbearded John</option>
+<option value="2">Davy Jones</option>
+<option value="3">Jack the Bloom</option>
+<input name="Score" type="button" value="Offer To Play" onclick="top.location.href='battle.htm'" /> <br />
+</select><br>
+
+
+
+
+</td>
+</tr>
+
+<tr>
+<td colspan="2" style="background-color:#FFA500;text-align:center;">
+Blackbearded 2012</td>
+</tr>
+</table>
+
+</body>
+</html>
