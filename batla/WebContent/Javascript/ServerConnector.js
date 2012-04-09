@@ -1,0 +1,170 @@
+var myId = null;
+var connectionOpen=new Boolean(1);
+var bombingIsOn=new Boolean(0);
+var myTurnToBomb=new Boolean(0);
+var shipsUploaded=new Boolean(0);
+$(function(){
+	console.log(" Loging to BattleServlett");
+	
+	//needed for getting an id;
+	//TODO remove this and get id from ivar's servlett 
+	$.post("BattleServlet", {"action":"register"}, function(data) {
+		var serverResponse=data.split("%%");
+		myId = serverResponse[0];
+		console.log("var myId = "+myId);
+		console.log(serverResponse[1]);
+		getPlaceMessage();
+		getEndGameMessage();
+	});
+	
+
+
+
+	//recieves a message
+	function getEndGameMessage(){
+		var data = {
+				'action':"ListenToEnd",
+				'id' : myId,
+
+			};
+		$.get("BattleServlet", data,function (msg) {
+			
+			if(msg="game ended"){
+				console.log("The game has ended server says : "+msg);
+				alert("Game ended");
+				connectionOpen=new Boolean(0);
+				
+			}
+
+				
+		});
+	}
+	
+	function getPlaceMessage() {
+		var data = {
+				'action':"ListenToPlace",
+				'id' : myId,
+
+			};
+		$.get("BattleServlet", data,function (msg) {
+			//$("#list").append("<li>" + msg + "</li>");
+			if(msg="we're ready to bomb"){
+				console.log("intro accepted "+msg);
+				if(connectionOpen==true){
+					bombingIsOn=new Boolean(1);
+					askServerToBomb();
+				}
+			}
+
+				
+		});
+	}
+});
+function askServerToBomb(){
+	var data ={
+			'action':"bombPermision",
+			'id' : myId
+				}
+	if(connectionOpen==true){
+	$.post("BattleServlet", data, function(response) {
+		
+		console.log("clicked +teade saadetud+ response is AAAAAAAAAA "+ response);
+		var serverResponse= response.split("%%");
+		if(serverResponse[0]=="uGo"){
+			 myTurnToBomb=new Boolean(1);
+			 console.log("AAAAAAAAAAAAA"+serverResponse[3]);
+			 if(serverResponse[3]>0){
+				// alert("your ship is destroyed");
+			 }
+			 if(serverResponse[3]!=-1){
+				 bombedByBot(serverResponse[1],serverResponse[2],serverResponse[3]);
+				 console.log("A destroyed ship size  "+serverResponse[3]);
+			 }
+			 else{
+				 alert("You are first");
+			 }
+			 if(serverResponse[4]=="he won"){
+				 alert("hew won");
+				 //close connections
+				 connectionOpen=new Boolean(0);
+			 }
+		}
+	});	
+	}
+	
+}
+function uploadShipPosition(x,y){
+	//$.post("BattleServlet", {"action":"uploadShip"},{'id' : myId,},{'xCoord': x},{'yCoord':y} )
+	if(shipsUploaded==false && connectionOpen==true){
+	var data = {
+			'action':"uploadShip",
+			'id' : myId,
+			'xCoord': x,
+			'yCoord':y
+			
+			
+		};
+	console.log("ships  pos sent to server: coords x is "+x +" y is "+y+" id is "+myId);
+		$.post("BattleServlet", data, function(response) {
+			
+			console.log("clicked +teade saadetud+ response is "+ response);
+			shipsUploaded=new Boolean(1);
+			
+		});	
+	
+	}
+	
+}
+function shootTheEnemy(a,b){
+	var success=new Boolean(0);
+	var data = {
+			'action':"Shoot",
+			'id' : myId	,
+			"xCoord": a,
+			"yCoord" :b
+		};
+	if(connectionOpen==true){
+	$.post("BattleServlet", data, function(response) {
+		
+		console.log("ShootTheEnemy: Recieved message from server: "+response );
+		var serverResponse= response.split("%%");
+		if(serverResponse[0]=="bingo"){
+			success=new Boolean(1);
+			console.log("ShootTheEnemy: Shot result:: "+ success );
+			if(serverResponse[1]>0){
+				//alert("Enemy ship destroyed "+serverResponse[1]);
+			}
+		}
+		if(serverResponse[2]=="won"){
+			alert("you won!");
+			connectionOpen=new Boolean(0);
+			//TODO close connection or exit game
+			
+		}
+		myTurnToBomb=new Boolean(0);
+		 askServerToBomb();
+		
+		 console.log("Shot new result :: "+ success );
+		 bombedContinued(success,a,b,serverResponse[1]);
+	});	
+	}
+
+}
+
+function closeGame(){
+	var data = {
+			'action':"LeaveGame",
+			'id' : myId		
+		};
+	console.log(myId);
+	
+		$.post("BattleServlet", data, function(response) {
+			
+			console.log("You 've said a server that you 've just left a game");
+			
+		});	
+}
+
+$(window).unload(function() {
+	closeGame();
+});
