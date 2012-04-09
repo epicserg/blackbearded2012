@@ -8,6 +8,7 @@ public class ListOfGames {
 	boolean gamerWaiting=false;
 	int gamerWaitingId=-1;
 	
+	
 	 ListOfGames(){
 		theList =new ArrayList();
 	}	

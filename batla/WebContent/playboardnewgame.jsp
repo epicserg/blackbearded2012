@@ -1,7 +1,52 @@
 <html>
 <head>
 <!-- head stuff -->
-<script type="text/javascript" src="javascript/LoadOnStart.js"></script>
+<script type="text/javascript" >
+
+/*
+function getValue(varname)
+{
+  // First, we load the URL into a variable
+  var url = window.location.href;
+
+  // Next, split the url by the ?
+  var qparts = url.split("?");
+
+  // Check that there is a querystring, return "" if not
+  if (qparts.length == 0)
+  {
+    return "";
+  }
+
+  var query = qparts[1];
+  var vars = query.split("&");
+
+  var value = "";
+
+  for (i=0;i<vars.length;i++)
+  {
+
+    var parts = vars[i].split("=");
+
+    if (parts[0] == varname)
+    {
+  
+      value = parts[1];
+
+      break;
+    }
+  }
+  
+  // Convert escape code
+  value = unescape(value);
+
+  // Convert "+"s to " "s
+  value.replace(/\+/g," ");
+
+  // Return the value
+  return value;
+}*/
+</script>
 
 
 <head><link rel="stylesheet" type="text/css" href="css/playboardnewgame.css">
@@ -12,9 +57,11 @@
 
 <h1>Hello, 
 <script type="text/javascript">
-<!-- hide
+/*
 var name = getValue("user");
-document.write(name);
+var nameArray=name.split(";");
+var myId =nameArray[1];
+document.write(nameArray[0]+" Your id is "+id);*/
 // end hide -->
 </script>
 </h1>

@@ -35,17 +35,15 @@
       <td id="thirdtd">
       
   
-      
-      
-         <div id='item1'>
-   		<h1>Your id: <span id="myidd" name="Afrodita">???</span></h1>
-   		</div>
-   		
-			<h2>Enter your NickName</h2>
+
 			
 			<form name="theform" action="playboardnewgame.jsp" method="get">
+			<div id='item1'>
+   		    <h1>Your id: <span id="myidd" name="userId">???</span></h1>
+   		    </div>
+   		    <h2>Enter your NickName</h2>
 			<input id="teade" name="user"/>
-			<button type="submit" value="show" id="buttonAccept" style="visibility:hidden">Accept request</button>
+			<button type="submit" value="show" onclick ="gettingId();" id="buttonAccept" style="visibility:hidden">Accept request</button>
 			</form>
 			<button type="submit" id="but">Submit</button>
 

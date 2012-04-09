@@ -8,16 +8,20 @@ $(function(){
 	
 	//needed for getting an id;
 	//TODO remove this and get id from ivar's servlett 
+	
 	$.post("BattleServlet", {"action":"register"}, function(data) {
 		var serverResponse=data.split("%%");
+		
 		myId = serverResponse[0];
 		console.log("var myId = "+myId);
 		console.log(serverResponse[1]);
 		getPlaceMessage();
 		getEndGameMessage();
 	});
-	
-
+	/*
+	getPlaceMessage();
+	getEndGameMessage();
+*/
 
 
 	//recieves a message

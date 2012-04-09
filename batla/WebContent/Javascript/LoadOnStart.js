@@ -1,4 +1,4 @@
-<!-- hide from old browsers
+
 
 function getValue(varname)
 {

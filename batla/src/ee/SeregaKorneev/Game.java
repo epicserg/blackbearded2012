@@ -24,6 +24,16 @@ public class Game {
 		secondHistory=new BooleanList();
 		
 	}
+	public Game(int id1 , int id2){
+		this.firstPlayerId=id1;
+		this.secondPlayerId=id2;
+		firstPositions=new BooleanList();
+		secondPositions=new BooleanList();
+		firstHistory=new BooleanList();
+		secondHistory=new BooleanList();
+	}
+	
+	
 	public int getEnemyStreak(int id){
 		if(id==firstPlayerId){
 			return secondPlayerStreak;

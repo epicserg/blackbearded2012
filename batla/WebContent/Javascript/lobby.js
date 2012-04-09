@@ -11,8 +11,6 @@
   //leaving if leaving without entering the game
   window.onbeforeunload = function(){ 
 	  quitOnUnload();
-	  
-	 return "Are you sure?";
 	 
   }
   
