@@ -38,7 +38,7 @@ function bombedByBot(a,b){
 				engine.myShipDestroyed();
 			}
 						
-			}
+			}	
 		else{
 			changeElementPicture(1,a,b,"pictures/missed.jpg");
 		}
@@ -238,50 +238,6 @@ function markDestroyedShips(pos,a,b,callerA,callerB,shipMap){
 	}
 }
 
-//positions enemy ships on an enemy board --- only in version 0.2
- function positionEnemyShips(){
-	//3ship
-	engine.enemyShips.setTruth(0,0,new Boolean(1));
-	engine.enemyShips.setTruth(0,1,new Boolean(1));
-	engine.enemyShips.setTruth(0,2,new Boolean(1));
-	//4ship
-	engine.enemyShips.setTruth(9,9,new Boolean(1));
-	engine.enemyShips.setTruth(9,8,new Boolean(1));
-	engine.enemyShips.setTruth(9,7,new Boolean(1));
-	engine.enemyShips.setTruth(9,6,new Boolean(1));
-	//3ship
-	engine.enemyShips.setTruth(9,4,new Boolean(1));
-	engine.enemyShips.setTruth(9,3,new Boolean(1));
-	engine.enemyShips.setTruth(9,2,new Boolean(1));
-	//1ship
-	engine.enemyShips.setTruth(9,0,new Boolean(1));
-	//2ship
-	engine.enemyShips.setTruth(7,4,new Boolean(1));
-	engine.enemyShips.setTruth(7,3,new Boolean(1));
-	//2ship
-	engine.enemyShips.setTruth(5,3,new Boolean(1));
-	engine.enemyShips.setTruth(5,2,new Boolean(1));
-	//2ship
-	engine.enemyShips.setTruth(5,9,new Boolean(1));
-	engine.enemyShips.setTruth(5,8,new Boolean(1));
-	//1ship
-	engine.enemyShips.setTruth(0,9,new Boolean(1));
-	//1ship
-	engine.enemyShips.setTruth(0,7,new Boolean(1));
-	//1ship
-	engine.enemyShips.setTruth(0,5,new Boolean(1));
-	
-	
-	
-}/*
-function testPlay(){
-	for(i=0;i<10;i++){
-		for(j=0;j<10;j++){
-			
-			bombed(2,i,j);
-		}}
-}
-*/
 var engine=new theEngine();
 
 positionEnemyShips();

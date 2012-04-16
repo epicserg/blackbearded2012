@@ -2,7 +2,7 @@ package ee.SeregaKorneev;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//Simple datastructure
 public class BooleanList {
 	
 	

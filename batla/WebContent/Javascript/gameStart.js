@@ -224,6 +224,8 @@ function rotate(){
 	}
 }
 
+
+
 var gameIsPlayed=new Boolean(0);
 
 var myResourses=new Array(4,3,2,1);

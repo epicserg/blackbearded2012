@@ -32,18 +32,16 @@
       <input name="Exit" type="button" value="Exit" onclick=
       "top.location.href='playboard.jsp'"><br></td>
 
-      <td id="thirdtd">
-      
-  
-
+      <td id="thirdtd">        
 			
-			<form name="theform" action="playboardnewgame.jsp" method="get">
+			<!-- <form name="theform" action="playboardnewgame.jsp" method="get">-->
 			<div id='item1'>
    		    <h1>Your id: <span id="myidd" name="userId">???</span></h1>
+   		    <h5 id="modetitle" style="visibility:hidden">0</h2>
    		    </div>
    		    <h2>Enter your NickName</h2>
 			<input id="teade" name="user"/>
-			<button type="submit" value="show" onclick ="gettingId();" id="buttonAccept" style="visibility:hidden">Accept request</button>
+			<button type="submit" value="show" id="buttonAccept" onclick ="gettingId();" style="visibility:hidden">Accept request</button>
 			</form>
 			<button type="submit" id="but">Submit</button>
 
@@ -52,20 +50,33 @@
 			
 
 			<div id="select">
-				<FORM>
-					<select id="enemy" size="10" class="list">
+				<FORM name=form1>
+					<select name= "myList" id="enemy" size="10" class="list">
 
 					</select><br>
 				</FORM>
-			<button id="button">Offer to play</button>
-			<button id="buttonQuit">Quit Game</button>
+				
+				<h2>Current Battles</h2>
+			<ul id="list"></ul>
 			
+				<div id="select">	
+			<FORM>
+					<select id="CurrentBattles" size="10" class="list">
+
+					</select><br>
+			</FORM>
+			
+				
+			<button id="findPlayer">Offer to play</button>		
+			<!--<button id="button">Offer to play</button>-->
+			<button id="buttonQuit">Quit Game</button>
+		<!--	<button id="deleteGonePlayers">Delete players left</button>-->
 			<form name="theform" action="playboardnewgame.jsp" method="get">
 			<button id="buttonQuit">Join Started Battle</button>
 			</form>
 			
 
-			
+			<!--/*<button id="findPlayer" onclick=ConcretPlayer()>Choose ivar0</button>*/-->
 			<button id="buttonDecline" style="visibility:hidden" onclick=declineThing()>Decline request</button>
 			<h2 id="message" style="visibility:hidden">You were offered to play a game. Press Accept or Decline button</h2>
 		<tr>

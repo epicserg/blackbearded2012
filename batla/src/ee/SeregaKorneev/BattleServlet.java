@@ -19,10 +19,12 @@ public class BattleServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private ListOfGames games;
+	public static PlayedGames playedGames;
 	int numberOfId=0;
 	
 	public BattleServlet(){
 		super();
+		playedGames=new PlayedGames();
 		games=new ListOfGames();
 		System.out.println("Battleservlet created");
 	}
@@ -33,9 +35,9 @@ public class BattleServlet extends HttpServlet {
 	
 			System.out.println("doPost activated");
 			response.setContentType("text/plain");
-			//showGamers();
 			
 			
+			//Depending on this par , different actions will be made
 			String action = request.getParameter("action");
 			
 			
@@ -45,6 +47,10 @@ public class BattleServlet extends HttpServlet {
 				int secondPlayerId=games.destroyGameQuit(id);
 				
 				//TODO inform Second player
+			}
+			if(action.equals("seeGameHistory")){
+				
+				response.getWriter().print(PlayedGames.getAllGames());
 			}
 			if(action.equals("bombPermision")){
 				int id=Integer.parseInt(request.getParameter("id"));
@@ -60,8 +66,6 @@ public class BattleServlet extends HttpServlet {
 					
 				}
 				
-				
-				
 				response.getWriter().print("uGo");
 				response.getWriter().print("%%"+game.getLastBombedX(id));
 				response.getWriter().print("%%"+game.getLastBombedY(id));
@@ -73,6 +77,13 @@ public class BattleServlet extends HttpServlet {
 					//kill this game session
 					
 					//TODO save some info in database
+					if(game.idIsfirstPlayers(id)){
+						
+						playedGames.addGame(false, game.getFirstTag(),game.getSecondTag());
+					}
+					else{
+						playedGames.addGame(false, game.getSecondTag(),game.getFirstTag());
+					}
 					games.destroyGameQuit(id);
 					System.out.println("Game session destroyed");
 				}
@@ -114,8 +125,12 @@ public class BattleServlet extends HttpServlet {
 			}
 			
 			if (action != null && action.equals("register")) {
-				response.getWriter().print(numberOfId); // send ID				
-				if(games.setId(numberOfId)){
+				response.getWriter().print(numberOfId); // send ID
+				
+					 String tag = request.getParameter("tag");
+		
+				System.out.println("tag recieved "+tag);
+				if(games.setId(numberOfId,request.getParameter("tag"))){
 					response.getWriter().print("%%game finally created");
 				}
 				else{

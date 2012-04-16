@@ -1,27 +1,38 @@
 var myId = null;
+var myTag=0;
 var connectionOpen=new Boolean(1);
 var bombingIsOn=new Boolean(0);
 var myTurnToBomb=new Boolean(0);
 var shipsUploaded=new Boolean(0);
+function show_prompt()
+{
+	myTag=prompt("Please enter your name");
+
+	return myTag;
+}
+
 $(function(){
 	console.log(" Loging to BattleServlett");
 	
-	//needed for getting an id;
-	//TODO remove this and get id from ivar's servlett 
+	myTag=prompt("Please enter your tag","0");
 	
-	$.post("BattleServlet", {"action":"register"}, function(data) {
+	var data = {
+			'action':"register",
+			'tag' : myTag,
+
+		};
+	console.log("tag is "+data.tag);
+	
+	$.post("BattleServlet", data, function(data) {
 		var serverResponse=data.split("%%");
 		
+		console.log("tag saved as "+ myTag);
 		myId = serverResponse[0];
 		console.log("var myId = "+myId);
 		console.log(serverResponse[1]);
 		getPlaceMessage();
 		getEndGameMessage();
 	});
-	/*
-	getPlaceMessage();
-	getEndGameMessage();
-*/
 
 
 	//recieves a message
@@ -81,7 +92,7 @@ function askServerToBomb(){
 				// alert("your ship is destroyed");
 			 }
 			 if(serverResponse[3]!=-1){
-				 bombedByBot(serverResponse[1],serverResponse[2],serverResponse[3]);
+				 bombedByEnemy(serverResponse[1],serverResponse[2],serverResponse[3]);
 				 console.log("A destroyed ship size  "+serverResponse[3]);
 			 }
 			 else{
@@ -105,8 +116,6 @@ function uploadShipPosition(x,y){
 			'id' : myId,
 			'xCoord': x,
 			'yCoord':y
-			
-			
 		};
 	console.log("ships  pos sent to server: coords x is "+x +" y is "+y+" id is "+myId);
 		$.post("BattleServlet", data, function(response) {

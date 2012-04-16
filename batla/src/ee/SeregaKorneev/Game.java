@@ -9,30 +9,46 @@ public class Game {
 	BooleanList firstPositions  ,secondPositions,firstHistory,secondHistory;//= new ArrayList();
 	public boolean gameEnded =false;
 	boolean firstPlayersTurn =true;
+	public String getFirstTag() {
+		return firstTag;
+	}
+	public void setFirstTag(String firstTag) {
+		this.firstTag = firstTag;
+	}
+	public String getSecondTag() {
+		return secondTag;
+	}
+	public void setSecondTag(String secondTag) {
+		this.secondTag = secondTag;
+	}
+
+
 	int firstPlacedCells=0;
 	int secondPlacedCells=0;
 	public boolean bombingStarted=false;
 	int firstPlayerStreak=0;
 	int secondPlayerStreak=0;
+	String firstTag;
+	String secondTag;
 	
-	public Game(int id1){
+	public Game(int id1,String tag){
+		this.firstTag=tag;
 		this.firstPlayerId=id1;
 		this.secondPlayerId=-1;
-		firstPositions=new BooleanList();
-		secondPositions=new BooleanList();
-		firstHistory=new BooleanList();
-		secondHistory=new BooleanList();
+		createGame();
 		
 	}
 	public Game(int id1 , int id2){
 		this.firstPlayerId=id1;
 		this.secondPlayerId=id2;
+		createGame();
+	}
+	void createGame(){
 		firstPositions=new BooleanList();
 		secondPositions=new BooleanList();
 		firstHistory=new BooleanList();
 		secondHistory=new BooleanList();
 	}
-	
 	
 	public int getEnemyStreak(int id){
 		if(id==firstPlayerId){
@@ -115,6 +131,8 @@ public class Game {
 			return  secondPlayerId;
 		}
 	}
+	
+	
 	synchronized void changeBomber(){
 		if(firstPlayersTurn){
 			firstPlayersTurn=false;
@@ -125,10 +143,12 @@ public class Game {
 	}
 	
 
-	void setSecondPlayer(int id2){
+	void setSecondPlayer(int id2,String tag2){
 		this.secondPlayerId=id2;
-		System.out.println("second player has joined the hub ");
-		//TODO tell the first player about this
+		this.secondTag=tag2;
+		System.out.println("second player has joined the hub "+ " tag test : "+ secondTag +" "+ firstTag);
+		
+		
 	}
 
 	public boolean doesFirstPlayerGo(){
@@ -179,14 +199,6 @@ public class Game {
 	public int getSecondPlayerId() {
 		return secondPlayerId;
 	}
-
-
-
-	synchronized Boolean checkForWin(int playerId){
-		//TODO use algorithm in javascript
-		return false;
-	}
-
 	
 	//id -- is a target Id
 	int checkForCell(int Id,int a,int b,BooleanList shipObject,BooleanList historyObject, boolean diag, boolean up){

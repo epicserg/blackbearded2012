@@ -17,7 +17,7 @@ public class Lobby extends HttpServlet {
 	
 	StringBuffer puhver = new StringBuffer("");
 	ArrayList<Object> names=new ArrayList<Object>();
-    String nameList;
+    String nameList=new String();
     HashSet HSet = new HashSet(names);
 	ArrayList names2;
 	
@@ -27,23 +27,44 @@ public class Lobby extends HttpServlet {
 		    		puhver.append(nameList);
 		    
 	 }}
-    
+	 
+	 
+	 void refreshList(){
+		 names2.clear();
+		 System.out.println("MESSAGE (refreshList):Array is reffreshed");
+	 }
+	 
 
-	 void addNameArray(String nameList){        //getting rid of dublicates in list
+	 void addNameArray(String nameList, int id){        //getting rid of dublicates in list
 		 String offer=new String("offer");
 		 String confirmed=new String("confirmed");
 		 if(nameList.equals(offer)){
-			 System.out.println("MESSAGE: cant add system message to namelist");
+			 System.out.println("MESSAGE (addNameArray): cant add system message ( " +offer+ " )  to namelist");
+			 System.out.println("MESSAGE (addNameArray): Game Offered to another player");
 		      
 	    		}
-		 else{
+		 else if (nameList.equals(confirmed)){
+			 System.out.println("MESSAGE (addNameArray): cant add system message( " +confirmed+ " ) to namelist");
+			 System.out.println("MESSAGE (addNameArray): Game Request Accepted");
+			 deleteEquals(id);
+			 
+			 
+		 }
+		 
+	 else{
 	    		names.add(nameList);
 	    		HashSet HSet = new HashSet(names);
 	    		ArrayList names3 = new ArrayList(HSet) ;
 	    		names2 = names3;
 	    	
 		 }
-		 System.out.println("MESSAGE: Current players are: " + names2);
+		 System.out.println("MESSAGE (addNameArray): Current players are: " + names2);
+		 System.out.println("MESSAGE (addNameArray): size of array " + names2.size());
+	 }
+	 
+	 void deleteIdfromNick (String nameList){
+		 
+		 
 	 }
 		
 	    
@@ -67,28 +88,46 @@ public class Lobby extends HttpServlet {
 		     char last = names2Element.charAt(lastIdx);      //getting last char from element
 			 
 			 if (last == aStringChar[0]) {            //if idString equals to element last char
-				 System.out.println("MESSAGE: Players with id " +last+" is leaving");   //Test
+				 System.out.println("MESSAGE(deleteEquals): Players with id " +last+" is leaving");   //Test
 				 names2.remove(i);                                //remove this element from names2
-				 System.out.println("MESSAGE: After player with  id " +last+" left " + " current players are "+names2);   //test
+				 System.out.println("MESSAGE(deleteEquals): After player with  id " +last+" left " + " current players are "+names2);   //test
 		          }
 		      }
 		  }
 	  
 	  
 	  else if(aString.length()==2){
-		  System.out.println("MESSAGE: ToDo for xx type id's");  
+		  for(int i=0;i<names2.size();i++){
+			  String names2Element=(String) names2.get(i);  
+			     int strLen = names2Element.length();            
+			     int lastIdx = strLen - 1;        
+			     int preLastIdx = strLen - 2;  
+			     char last = names2Element.charAt(lastIdx);    
+			     char preLast = names2Element.charAt(preLastIdx);  
+			     System.out.println("MESSAGE(deleteEquals): id, preLast, last " + aString+ last+ preLast);  
+			     if (preLast == aStringChar[0]) { 
+			    	 if(last==aStringChar[1]){
+			    	 System.out.println("MESSAGE(deleteEquals): Players with id xx type " +last+" is leaving");   //Test
+					 names2.remove(i);                                //remove this element from names2
+					 System.out.println("MESSAGE(deleteEquals): After player with  id xx type " +last+" left " + " current players are "+names2);   //test
+			    	 }  
+		  }
+			     else
+			    	 
+		  System.out.println("MESSAGE(deleteEquals): is not working deleting");  
 	  }
 	  
 	  for(int i=0;i<names2.size();i++){  //deleting system messages
 		  if(names2.get(i).equals(confirmed)|names2.get(i).equals(offer)){
 			  names2.remove(i);
-			  System.out.println("MESSAGE: deleting confirm and offer system messages"); 
+			  System.out.println("MESSAGE(deleteEquals): deleting confirm and offer system messages"); 
 			  
 		  }
 	  }
-	  System.out.println("MESSAGE: after deleting player, current players are "+names2); 
+	  System.out.println("MESSAGE(deleteEquals): after deleting player, current players are "+names2); 
       
     	}
+  }
 
 	
 	
@@ -97,7 +136,7 @@ public class Lobby extends HttpServlet {
 		response.setContentType("text/plain");
 		
 		int id = Integer.parseInt(request.getParameter("id")); 
-	
+
 		
 		try {
 			BlockingQueue<String> q = msgQueues.get(id);
@@ -129,7 +168,24 @@ public class Lobby extends HttpServlet {
 	
 	else if (action != null && action.equals("LeaveLobby")) {  //if player leaves lobby
 		int id=Integer.parseInt(request.getParameter("id"));
-		System.out.println("MESSAGE: Will now delete player with "+id+" id");
+		 System.out.println("MESSAGE(closeLobdySession() initiated): Will now delete player with "+id+" id");
+		deleteEquals(id);
+		response.getWriter().print(names2); //sendedited nameList
+		
+	}
+	
+	else if (action != null && action.equals("refresh")){
+		int id=Integer.parseInt(request.getParameter("id"));
+		 System.out.println("refreshing list");
+		refreshList();
+		
+		
+	}
+	
+	
+	else if (action != null && action.equals("findPlayer")) {  //if player leaves lobby
+		int id=Integer.parseInt(request.getParameter("id"));
+		 System.out.println("MESSAGE(closeLobdySession() initiated): Will now recieve offer message to another player, whose nickname is ");
 		deleteEquals(id);
 		response.getWriter().print(names2); //sendedited nameList
 		
@@ -139,7 +195,8 @@ public class Lobby extends HttpServlet {
 		
 	   else if (action != null && action.equals("addName")) {   //getting playerList for player just arrived
 			int id = msgQueues.size();
-			System.out.println("MESSAGE: You joined the LOBBY, current players are "+names2);
+			System.out.println("MESSAGE(addName): You joined the LOBBY, current players are "+nameList);
+			System.out.println("response contains "+names2);
 			response.getWriter().print(names2); // send nameList
 			msgQueues.add(new ArrayBlockingQueue<String>(100));
 		}
@@ -159,7 +216,7 @@ public class Lobby extends HttpServlet {
 					{
 						msgQueues.get(i).put(request.getParameter("msg"));
 						addName(nameList); //aading names to list
-						addNameArray(nameList);//getting rid of dublicates in playerList
+						addNameArray(nameList,id);//getting rid of dublicates in playerList
 					
 				
 						
@@ -173,6 +230,7 @@ public class Lobby extends HttpServlet {
 				throw new RuntimeException(e); 
 			}
 		}
+
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListOfGames {
+	
 	static List <Game> theList;
 	boolean gamerWaiting=false;
 	int gamerWaitingId=-1;
@@ -14,7 +15,7 @@ public class ListOfGames {
 	}	
 	 
 	 //Only for a beggining phase 
-	 //TODO aks for id pairs from ivar's servlett
+	 
 	 
 	 //returns a list of strings with active games. String content is:first and second id of gamers
 	 public List getAllActiveGames(){
@@ -47,20 +48,20 @@ public class ListOfGames {
 		 System.out.println();
 	 }
 	 
-	 synchronized boolean setId(int id){
+	 synchronized boolean setId(int id,String tag){
 		 //if id is not present , then add
 		 if(!gamerWaiting){
 			 gamerWaiting=true;
 			 gamerWaitingId=id;
 			 System.out.println("player rgistered- waiting for second to come");
-			 theList.add(new Game(id));
+			 theList.add(new Game(id,tag));
 			 return false;
 		 }
 		 else{
 			 
 			 gamerWaiting=false;
 			 gamerWaitingId=-1;
-			 theList.get(theList.size()-1).setSecondPlayer(id);
+			 theList.get(theList.size()-1).setSecondPlayer(id,tag);
 
 			 return true;
 		 }
