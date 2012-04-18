@@ -3,6 +3,7 @@ function shipArray(){
 	this.shipCoords=MultiArray(10,10);
 	this.getTruth=getTruth;
 	this.setTruth=setTruth;
+	this.setNewShipArray=setNewShipArray;
 }
 //checks if there is a ship in a given cell
 function getTruth(i,j){
@@ -12,7 +13,10 @@ function getTruth(i,j){
 	else{
 		return this.shipCoords[i][j];
 	}
-	}
+}
+function setNewShipArray(input){
+	this.shipCoords=input;
+}
 function setTruth(i,j,Boolean){
 	this.shipCoords[i][j]=Boolean;
 	//alert(Boolean +" is set at x " +j+ " y at "+ i) ; 

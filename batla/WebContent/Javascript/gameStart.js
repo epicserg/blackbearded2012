@@ -10,6 +10,8 @@ function shipDragged(n){
   
  //Makes checks , if the game can begin and starts one
  function startGame(){
+	 ////////////////////////////////////////////////////////////////////////////////////////////
+	// saveBattleRecordInBrowserMemory(engine.myShips.shipCoords);
 	var checkBool=0;
 	for(i =0;i<4;i++){
 		if(myResourses[i]>0){
@@ -23,7 +25,7 @@ function shipDragged(n){
 		
 	}
 	else{
-		alert("You didn't plase all ships");
+		alert("You didn't plaze all ships");
 	}
  }
  

@@ -6,7 +6,7 @@ function bombed(c,a,b)
 		if(engine.enemyShips.getTruth(a,b)==true){
 			
 			changeElementPicture(c,a,b,"pictures/boom.jpg");
-			//TODO add animation when the enemy ship is blown up!!!			
+					
 			var destroyedShipSize=engine.detectDestroyedShipsOrigin(2,a,b)-1;
 			if(destroyedShipSize>(-1)){
 				markDestroyedShips(2,a,b,20,20,engine.enemyShips);

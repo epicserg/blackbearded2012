@@ -10,7 +10,8 @@ function theEngine(){
 	this.enemyShipDestroyed=function enemyShipDestroyed(){
 
 		if(this.enemyResourses[0]<1 && this.enemyResourses[1]<1 && this.enemyResourses[2]<1 && this.enemyResourses[3]<1 ){
-			alert("you won");
+			
+			//alert("you won");
 		}
 	}
 	this.myShipDestroyed=function myShipDestroyed(){
@@ -79,8 +80,10 @@ function markDestroyedShips(pos,a,b,callerA,callerB,shipMap){
 //Responds to an attempt of the player to bomb the enemy ship
 function bombedContinued(infoOnShot,a,b,shipSize){
 		var c=2;
-		console.log("here may be a fail"+a+" "+b);
+		
+		
  		if(infoOnShot==true){
+			recorder.registerEnemyTurn(a,b,true);
  			changeElementPicture(c,a,b,"pictures/boom.jpg");
 			engine.enemyShips.setTruth(a,b,new Boolean(1));
 			var destroyedShipSize=shipSize-1;
@@ -91,7 +94,7 @@ function bombedContinued(infoOnShot,a,b,shipSize){
  			}
  		}
  		else{
- 			
+ 			recorder.registerEnemyTurn(a,b,false);
  			changeElementPicture(c,a,b,"pictures/missed.jpg");
  		}
 		
@@ -107,12 +110,15 @@ function bombedContinued(infoOnShot,a,b,shipSize){
    }
 
  //simulation of bombing players ships by enemy
- function bombedByEnemy(a,b,size){	
+ function bombedByEnemy(a1,b1,size){	
+ 	var a=JSON.parse(a1);
+	var b=JSON.parse(b1);
+	console.log("event on my field");
  	if(gameIsPlayed==true && engine.getMyFieldHistory(a,b)==false){
  		engine.setMyFieldToBombed(a,b);
  		if(engine.myShips.getTruth(a,b)==true){
  			changeElementPicture(1,a,b,"pictures/boom.jpg");
- 			
+ 			recorder.registerMyTurn(a,b,true);
  			
  			
  			
@@ -127,6 +133,8 @@ function bombedContinued(infoOnShot,a,b,shipSize){
  			}
  		else{
  			changeElementPicture(1,a,b,"pictures/missed.jpg");
+
+			recorder.registerMyTurn(a,b,false);
  		}
  	}	
  }

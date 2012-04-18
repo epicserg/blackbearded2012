@@ -88,6 +88,7 @@ public class BattleServlet extends HttpServlet {
 					System.out.println("Game session destroyed");
 				}
 				else{
+					
 					response.getWriter().print("%%nothing");
 				}
 				
