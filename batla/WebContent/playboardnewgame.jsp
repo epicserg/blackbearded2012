@@ -26,6 +26,10 @@
 				<input name="Rules" type="button" value="Rules" onclick="top.location.href='rules.jsp'" /> <br />
 				<input name="Exit" type="button" value="Exit" onclick="closeGame()" " /> <br />
 				<input name="New Game" type="button" value="UploadShips!" onclick="startGame()" /> <br  />
+				 <input name="Score" type="button" value="History" onclick=
+                 									"top.location.href='Battlehistory.jsp'"><br>
+                 <input name="Score" type="button" value="Watch Game Record" onclick=
+             										 "top.location.href='WatchRecord.jsp'"><br>
 			</td>
 
 

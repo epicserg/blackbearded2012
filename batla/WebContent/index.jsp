@@ -27,7 +27,12 @@
       <input name="Rules" type="button" value="Rules" onclick=
       "top.location.href='rules.jsp'"><br>
       <input name="Exit" type="button" value="Exit" onclick=
-      "top.location.href='playboard.jsp'"><br></td>
+      "top.location.href='playboard.jsp'"><br>
+      
+       <input name="Score" type="button" value="History" onclick=
+                 		top.location.href='Battlehistory.jsp'"><br>
+       <input name="Score" type="button" value="Watch Game Record" onclick=
+                 "top.location.href='WatchRecord.jsp'"><br></td>
 
       <td id="thirdtd"><img src="pictures/4.jpg" alt="some_text"></td>
     </tr>

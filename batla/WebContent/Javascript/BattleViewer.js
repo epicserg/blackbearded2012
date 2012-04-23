@@ -56,11 +56,13 @@ function showNextTurnContinue(){
 
 
 function ask(){
+	
 	var askedNumberOfBattle=prompt("there are "+battles+" battles recorded. Which one would you like to see","1");
-	if(askedNumberOfBattle>0 && askedNumberOfBattle<battles+1){
-		return battles;
+	if(askedNumberOfBattle>0 && askedNumberOfBattle<battles+1 && battles!=0){
+		return askedNumberOfBattle;
 	}
 	else{
+		alert("no battles in history");
 		ask();
 	}
 }
