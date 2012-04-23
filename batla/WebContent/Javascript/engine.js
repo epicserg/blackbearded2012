@@ -1,5 +1,9 @@
+var audioBombed = new Audio("sound/bomb.mp3");
+var audioMissed = new Audio("sound/missed.mp3");
+var audioSank = new Audio("sound/sank.mp3");
 
-  
+
+
 //Stores info on every player and bot action and ship placement.
 //Stores info on ships left for both sides.
 //Stores functions on retrieving and editing that info in different ways.
@@ -54,7 +58,10 @@ function theEngine(){
 	
 }
 
+
+
 function markDestroyedShips(pos,a,b,callerA,callerB,shipMap){
+ audioSank.play();
 	changeElementPicture(pos,a,b,"pictures/nuke.png");
 	if(shipMap.getTruth(a+1,b)==true ){
 		if( !((a+1)==callerA && b ==callerB)){
@@ -84,6 +91,7 @@ function bombedContinued(infoOnShot,a,b,shipSize){
 		
  		if(infoOnShot==true){
 			recorder.registerEnemyTurn(a,b,true);
+			audioBombed.play();
  			changeElementPicture(c,a,b,"pictures/boom.jpg");
 			engine.enemyShips.setTruth(a,b,new Boolean(1));
 			var destroyedShipSize=shipSize-1;
@@ -95,6 +103,7 @@ function bombedContinued(infoOnShot,a,b,shipSize){
  		}
  		else{
  			recorder.registerEnemyTurn(a,b,false);
+ 			audioMissed.play();
  			changeElementPicture(c,a,b,"pictures/missed.jpg");
  		}
 		
@@ -117,6 +126,7 @@ function bombedContinued(infoOnShot,a,b,shipSize){
  	if(gameIsPlayed==true && engine.getMyFieldHistory(a,b)==false){
  		engine.setMyFieldToBombed(a,b);
  		if(engine.myShips.getTruth(a,b)==true){
+ 		  audioBombed.play();
  			changeElementPicture(1,a,b,"pictures/boom.jpg");
  			recorder.registerMyTurn(a,b,true);
  			
@@ -132,6 +142,7 @@ function bombedContinued(infoOnShot,a,b,shipSize){
  						
  			}
  		else{
+ 		  audioMissed.play();
  			changeElementPicture(1,a,b,"pictures/missed.jpg");
 
 			recorder.registerMyTurn(a,b,false);

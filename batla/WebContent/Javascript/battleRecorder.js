@@ -1,3 +1,11 @@
+function getNumberOfRecordedBattles(){
+	var number = localStorage.getItem('battles');
+	if (number==null){
+		number=0;
+	}
+	return number;
+}
+
 
 function EventList(){
 		var readerCurrentNumber;
@@ -101,10 +109,15 @@ function Recorder(){
 }
 //TODO add function which will save this in browser memory
 function saveBattleRecordInBrowserMemory(recorder){
-	
+	var battles =getNumberOfRecordedBattles();
 	if(typeof(Storage)!=="undefined")
-	  {
-		localStorage.setItem('didIGoFirst',recorder.iAmFirst);
+	  {	
+	
+		var battles=getNumberOfRecordedBattles();
+		battles++;
+		localStorage.setItem('battles',battles);
+		var didIGoFirst=new String('didIGoFirst'+battles);
+		localStorage.setItem(didIGoFirst,recorder.iAmFirst);
 		var myShipCoordsString=JSON.stringify(engine.myShips.shipCoords);
 		console.log("saving "+myShipCoordsString);
      	localStorage.setItem('recordMyShipPositionObject',myShipCoordsString);
@@ -115,8 +128,12 @@ function saveBattleRecordInBrowserMemory(recorder){
      	
      	var enemyEvents=JSON.stringify(recorder.getEnemyMovementsHistory().mainList);
      	console.log("SAVE enemyEvents"+enemyEvents);
-     	localStorage.setItem('myEventsObject',myEvents);
-     	localStorage.setItem('enemyEventsObject',enemyEvents);
+     	
+     	var myEventsObject=new String('myEventsObject'+battles);
+     	localStorage.setItem(myEventsObject,myEvents);
+     	
+     	var enemyEventsObject=new String('enemyEventsObject'+battles);    	
+     	localStorage.setItem(enemyEventsObject,enemyEvents);
      	//localStorage.setItem('myEventhistory',recorder.);
 	  }
 	else
@@ -125,10 +142,12 @@ function saveBattleRecordInBrowserMemory(recorder){
 	  }
 	
 }
-function buildRecorderFromLocalStorage(){
+function buildRecorderFromLocalStorage(askedNumber){
 	var recorder1=new Recorder();
-	if(localStorage.getItem('didIGoFirst')==true){
-		//recorder1.setIAmFirst();
+	var goFirst=new String('didIGoFirst'+askedNumber);
+	console.log("my first turn is "+localStorage.getItem(goFirst) );
+	if(localStorage.getItem(goFirst)=='true'){
+		recorder1.setIAmFirst();
 		console.log("i am first to go");
 	}
 	else{
@@ -138,22 +157,38 @@ function buildRecorderFromLocalStorage(){
 	var myShips=JSON.parse(localStorage.getItem('recordMyShipPositionObject'));
 	recorder1.loadMyShips(myShips);
 	
+	var myEventsNumber=new String('myEventsObject'+askedNumber);
+	var myEvents=JSON.parse(localStorage.getItem(myEventsNumber));
+	console.log("Building My events " +localStorage.getItem(myEventsNumber));
 	
-	var myEvents=JSON.parse(localStorage.getItem('myEventsObject'));
-	console.log("Building My events " +localStorage.getItem('myEventsObject'));
-	recorder1.loadMyEvents(myEvents);
 	
-	
-	var enemyEvents=JSON.parse(localStorage.getItem('enemyEventsObject'));
-	console.log("Building Enemy events " +localStorage.getItem('enemyEventsObject'));
-	recorder1.loadEnemyEvents(enemyEvents);
+	var enemyEventsNumber=new String('enemyEventsObject'+askedNumber);
+	var enemyEvents=JSON.parse(localStorage.getItem(enemyEventsNumber));
+	console.log("Building Enemy events " +localStorage.getItem(enemyEventsNumber));
+	recorder1.loadEnemyEvents(myEvents);
+	recorder1.loadMyEvents(enemyEvents);
 	
 	
 	console.log("my event len is "+myEvents.length+" enemyEvent len is "+ enemyEvents.length);
 	if(myEvents.length>enemyEvents.length){
+	
 		recorder1.iAmFirst=true;
 		console.log("value changed to i am first");
 	}
 	recorder1.loadMyShips(myShips);
 	return recorder1;
+}
+
+function saveBattleTag(myTag){
+	console.log("TAG  saver function called");
+	var tagArray;
+	if(localStorage.getItem("TagArray")==null){
+		tagArray=new Array();
+	}
+	else{
+		tagArray=JSON.parse(localStorage.getItem("TagArray"));		
+	}
+	tagArray.push(myTag);
+	localStorage.setItem("TagArray",JSON.stringify(tagArray));
+	console.log("TAG  succesfully saved");
 }

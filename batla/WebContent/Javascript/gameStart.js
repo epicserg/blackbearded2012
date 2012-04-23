@@ -25,7 +25,7 @@ function shipDragged(n){
 		
 	}
 	else{
-		alert("You didn't plaze all ships");
+		alert("You didn't place all ships");
 	}
  }
  

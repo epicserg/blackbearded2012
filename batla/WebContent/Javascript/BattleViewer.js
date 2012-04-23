@@ -1,23 +1,10 @@
-var record=buildRecorderFromLocalStorage();
+var battles =getNumberOfRecordedBattles();
+var askedNumberOfBattle=ask();
+
+var record=buildRecorderFromLocalStorage(askedNumberOfBattle);
 var nextOneIsMe=record.iAmFirst;
 console.log(nextOneIsMe);
 var reproductionHasEnded=false;
-/*
-console.log(record.myShipArray[0]);
-console.log(" my turns");
-console.log(record.getMyNextTurn());
-console.log(record.getMyNextTurn());
-console.log(record.getMyNextTurn());
-console.log(record.getMyNextTurn());
-
-
-
-console.log("enemy turns");
-console.log(record.getEnemyNextTurn());
-console.log(record.getEnemyNextTurn());
-console.log(record.getEnemyNextTurn());
-console.log(record.getEnemyNextTurn());
-*/
 
 function drawMyShips(){
 	for(i=0;i<10;i++){
@@ -60,9 +47,21 @@ function showNextTurnContinue(){
 	}
 	else{
 		alert("the battle has ended at this point");
+		console.log("last event is "+event[0]+" "+event[1]+" "+event[2]);
 		reproductionHasEnded=true;
 	}
 	
 	
+}
+
+
+function ask(){
+	var askedNumberOfBattle=prompt("there are "+battles+" battles recorded. Which one would you like to see","1");
+	if(askedNumberOfBattle>0 && askedNumberOfBattle<battles+1){
+		return battles;
+	}
+	else{
+		ask();
+	}
 }
 drawMyShips();

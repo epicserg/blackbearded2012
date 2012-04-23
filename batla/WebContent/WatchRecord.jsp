@@ -55,7 +55,7 @@
 		for(j=0;j<10;j++){
 			document.write("<div class='cell'><center><img id= 'pic2."+i+"."+j+"'' "+a+" alt='cell' width='28' height='30' /></div>");
 		}
-}
+    }
 </script>
 		</div>
 	</td>
@@ -72,7 +72,7 @@
 
 		
 
-	<script type="text/javascript" src="JQuery/jQuery.js"></script>
+	
 
 	 		
 </body>

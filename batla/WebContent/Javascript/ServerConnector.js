@@ -106,7 +106,8 @@ function askServerToBomb(){
 
 			 if(serverResponse[4]=="he won"){
 				 alert("hew won");
-				 //////////////////////////////////////////////////////////////////////////////
+				 
+				 saveBattleTag(myTag);
 				 saveBattleRecordInBrowserMemory(recorder);
 				 //close connections
 				 connectionOpen=new Boolean(0);
@@ -138,12 +139,7 @@ function uploadShipPosition(x,y){
 }
 function shootTheEnemy(a,b){
 	var success=new Boolean(0);
-	////////////////////////////////////////////////////////////////////////////////////////////////
-	/*
- 	var myEvents=JSON.stringify(recorder.getMyMovementsHistory().mainList);
- 	console.log("SAVE myEvents:"+myEvents);
- 	var enemyEvents=JSON.stringify(recorder.getEnemyMovementsHistory().mainList);
- 	console.log("SAVE enemyEvents"+enemyEvents);*/
+
 	var data = {
 			'action':"Shoot",
 			'id' : myId	,
@@ -153,13 +149,13 @@ function shootTheEnemy(a,b){
 	if(connectionOpen==true){
 	$.post("BattleServlet", data, function(response) {
 		
-		//console.log("ShootTheEnemy: Recieved message from server: "+response );
+		
 		var serverResponse= response.split("%%");
 		if(serverResponse[0]=="bingo"){
 			success=new Boolean(1);
 			console.log("ShootTheEnemy: Shot result:: "+ success );
 			if(serverResponse[1]>0){
-				//alert("Enemy ship destroyed "+serverResponse[1]);
+				
 			}
 		}
 
@@ -171,6 +167,8 @@ function shootTheEnemy(a,b){
 			if(serverResponse[2]=="won"){
 				alert("you won!");
 				////////////////////////////////////////////////////////////////////////////////////////////////////
+				
+				saveBattleTag(myTag);
 				saveBattleRecordInBrowserMemory(recorder);
 				
 				connectionOpen=new Boolean(0);
