@@ -1,0 +1,57 @@
+.cell{
+width:28px;
+height:30px;
+line-height:50px;
+font-size:12px;
+float:left;
+border:1px solid black;
+text-align:center;
+
+}
+  
+ hide{
+ display:none
+ }
+ 
+  
+ DIV.movable { 
+ position:absolute; 
+ }
+  
+  #firstd{
+  background-color:#FFA500;
+  }
+  
+  
+  #secondtd{
+  background-color:#EEEEEE;
+  height:200px;
+  width:60px;
+  text-align:top;
+  }
+
+.highlightit img{
+border: 2px solid #ccc;
+}
+
+.highlightit:hover img{
+border: 2px solid red;
+}
+
+.highlightitCell img{
+border: 0px solid #ccc;
+}
+
+.highlightitCell:hover img{
+border: 0px solid red;
+}
+
+.cell:hover {
+	filter:alpha(opacity=150);
+	 ..-opacity:0.5; 
+	 opacity:0.5; 
+	 -khtml-opacity:0.5;
+	 background-color:#8aefc3;
+}
+
+

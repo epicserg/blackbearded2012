@@ -1,0 +1,41 @@
+  TABLE{ width="500"; border="0";} 
+  /*table style*/
+  
+  #first{ 
+  background-color:#FFA500;
+  }
+  /*first td style*/
+  
+  #second{ 
+  background-color:#FFD720; 
+  width:120px; 
+  text-align:top;}
+  /*second td style*/
+  
+  #third{
+  background-color:#EEEEEE;
+  height:400px;
+  width:400px;
+  text-align:top;
+  }
+  /*third td style*/
+  
+  #fourth{
+   background-color:#FFA500;
+   text-align:center;
+   }
+  /*fourth td style*/
+  
+  
+  
+  
+  CurrentBattles.pos_left
+{
+position:relative;
+right:-20px;
+}
+  
+  
+  
+  
+ 
